@@ -1,0 +1,187 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+.noMargin {margin: 0 !important;}
+.hiddenTickitzLogo {display: none;}
+.mulishFont {font-family: 'Mulish';}
+.input{
+   border: none;
+   color: #A0A3BD;
+   font-family: "Mulish";
+   height: 1.5vw;
+   position: absolute;
+}
+.borderInput{
+   border: 0.1vw solid #DEDEDE;
+   border-radius: 0.5vw;
+   height: 3vw;
+   margin-top: 2.5%;
+   margin-bottom: 5%;
+   padding: 3.3%;
+   width: auto;
+}
+.submitBtn{
+   background-color: #5F2EEA;
+   border: none;
+   border-radius: 0.5vw;
+   color: white;
+   font-family: "Mulish";
+   font-size: 0.8vw;
+   height: 3vw;
+   margin-top: 5%;
+   width: 100%;
+}
+.optionLoginButton {align-items: center; display: flex; flex-direction: row; justify-content: space-between; margin: 7% 0 3% 0;}
+.resetNowText{color: #5F2EEA; margin-left: 8px;}
+.lineBreaks {
+   width: 70%; 
+   text-align: center; 
+   border-bottom: 1px solid #DEDEDE; 
+   line-height: 0.1vw;
+   margin-top: 5%;
+} 
+.lineBreaks span { 
+   background: white;
+   color: #AAAAAA;
+   font-family: "Inter",sans-serif;
+   font-size: 0.8vw;
+   padding: 0 2.5vw; 
+}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .doubleSidedPage {
+      display: flex;
+      flex-direction: row;
+   }
+   .leftSide{
+      animation: slideLeft 1s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url("../background.png");
+      background-position: 50% 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      width: 60%;
+   }
+   @keyframes slideLeft{from{left: -10vw; opacity: 0;} to{left: 0; opacity: 1;}}
+   .colorOpacity{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #2B156B;
+      opacity: 0.8;
+   }
+   .logo{z-index: 1; width: 50%;}
+   .textBelowLogo{
+      color: white;
+      margin: 0;
+      opacity: 0.8;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 2.5vw;
+   }
+   .rightSide{
+      align-items: center;
+      animation: appear 2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      width: 30%;
+   }
+   .insideRightFlex{width: 70%;}
+   .signInText{font-family: "Inter", sans-serif; margin-bottom: 15%;}
+   .signInBigText{font-size: 2.7vw; font-weight: 600;}
+   .signInSmallText{font-size: 0.9vw; color: #AAAAAA; text-align: justify;}
+   .labelInput{color: #4E4B66; font-family: "Mulish"; font-size: 0.8vw;}
+   .input {font-size: 0.8vw;}
+   .input:focus{color: black; outline: none;}
+   .input:invalid{box-shadow:none;}
+   .eyeLogo{
+      display: inline;
+      float: right; 
+      opacity: 0.5;
+      height: 1vw;
+      margin: 0.3vw;
+      width: 1vw; 
+      transition-duration: 0.5s;
+   }
+   .eyeLogo:hover{cursor: pointer; opacity: 0.2;}
+   .submitBtn{
+      background-color: #5F2EEA;
+      border: none;
+      border-radius: 0.5vw;
+      color: white;
+      font-family: "Mulish";
+      font-size: 0.8vw;
+      height: 3vw;
+      margin-top: 5%;
+      width: 100%;
+   }
+   .submitBtn:active{padding: 0;}
+   .resetPassText{
+      font-family: "Inter",sans-serif;
+      font-size: 0.8vw;
+      margin-top: 8%;
+      text-align: center;
+   }
+   .resetPasswordNow {margin-right: 1vw;}
+   .bottomSignInBtnArea {
+      display: flex; 
+      justify-content:space-between; 
+      margin-top: 5%; 
+      width: 21vw;
+   }
+   .btnLogo{
+      height: 1vw;
+      margin-right: 1vw;
+      width: 1vw;
+   }
+   .bottomBtn{
+      background-color: white;
+      border-radius: 0.5vw;
+      box-shadow: 0px 0.2vw 0.4vw rgba(0, 0, 0, 0.08);
+      color: #A0A3BD;
+      display: flex;
+      font-family: "Mulish";
+      font-size: 0.8vw;
+      padding: 0.7vw 2.1vw;
+      text-align: center;
+   }
+   a:link{text-decoration: none;}
+   .hoverEffect{cursor: pointer; transition-duration: 0.5s;}
+   .hoverEffect:hover{opacity: 0.7;}
+   @keyframes appear{from{opacity: 0;} to{opacity: 1;}}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .hideInMobile {display: none;}
+   .doubleSidedPage {padding: 52px 24px;}
+   .hiddenTickitzLogo {display: block; height: 20px; width: 78px;}
+   .leftSide {display: none;}
+   .signInBigText {font-size: 26px; font-weight: 600; margin: 42px 0;}
+   .signInSmallText {display: none;}
+   .input {font-size: 16px; height: 8vw;}
+   .borderInput {height: 50px;}
+   .eyeLogo {float: right; height: 18px; margin: 5px; width: 18px;}
+   .submitBtn {border-radius: 2vw; font-size: 16px; height: 50px; margin-top: 10%;}
+   .resetPassText {margin: 32px 0; text-align: center;}
+   .optionLoginButton {font-size: 15px; margin: 24px 0;}
+   .resetPasswordNow {margin-right: 24px;}
+   .lineBreaks {width: 100%;}
+   .lineBreaks span {font-size: 12px; padding: 0 40px;}
+   .bottomSignInBtnArea {align-items: center; display: flex; justify-content: space-between; margin: auto; margin-top: 40px; text-align: center; width: 50%;}
+   .bottomBtn {
+      background: #FFFFFF;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      padding: 20px;
+   }
+   .btnLogo {height: 20px; margin: none; width: 20px;}
+}

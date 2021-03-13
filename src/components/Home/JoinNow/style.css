@@ -1,0 +1,49 @@
+.insideJoinNow {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.inputJoinNow {border: none;}
+.inputJoinNow:focus {outline: none;}
+.inputJoinNow:invalid {box-shadow: none;}
+.joinNowBtn {background: #5F2EEA; border: none; color: white; padding: 0;} 
+.joinNowBtn:hover {opacity: 0.5;}
+.joinNowBtn:focus {outline: none;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .joinNow {
+      background: #FFFFFF;
+      box-shadow: 0px 16px 32px rgba(186, 186, 186, 0.3);
+      border-radius: 8px;
+      height: auto;
+      margin: 3% 7% 15% 7%;
+   }
+   .insideJoinNow {height: 28vw; padding: 3vw 0;}
+   .vanguardText {font-size: 1.5vw;}
+   .moviegoersText {color: #5F2EEA; font-size: 3vw; font-weight: 600; line-height: 2vw;}
+   .joinNowFormSetUp {display: flex; flex-direction: row; width: 100%;}
+   .inputJoinNowBorder {border: 0.1vw solid #DEDEDE; border-radius: 0.3vw; padding: 3% 7%; width: 22vw;}
+   .inputJoinNow {font-size: 0.8vw;}
+   .joinNowBtn {border-radius: 0.3vw; font-size: 1vw; margin-left: 5%; width: 10vw;}
+   .joinBottomText {color: #6E7191; font-size: 1vw;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .joinNow {
+      background: #FFFFFF;
+      box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.15);
+      border-radius: 8px;
+      height: auto;
+      margin: 0 24px 72px 24px;
+      padding: 48px 0;
+   }
+   .vanguardText {color: #4E4B66; font-size: 14px;}
+   .moviegoersText {color: #5F2EEA; font-size: 32px; font-weight: 600; line-height: 0;}
+   .inputJoinNowBorder {background: white; border: 1px solid #DEDEDE; border-radius: 4px; margin-top: 42px; margin-bottom: 16px; padding: 7px 15px;}
+   .joinNowBtn {border-radius: 4px; height: 40px; margin-bottom: 32px; width: 240px;}
+   .joinBottomText {color: #6E7191; font-size: 12px; margin: 0;}
+   .joinNowColumnThree {width: 77%;}
+}

@@ -1,0 +1,86 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+.footer {margin: 0 !important;}
+.footerText {
+   color: #6E7191;
+   font-family: 'Mulish';
+   margin: 0;
+}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .footer {height: auto; padding: 3% 6% 0 6%;}
+   .footerTextTitle {
+      font-family: 'Mulish'; 
+      font-size: 1vw;
+      font-weight: 600; 
+      margin: 0 0 1.8vw 0.3vw;
+   }
+   .footerText {margin: 0.3vw;}
+   .tickitzFooterLogo {
+      height: 3vw;
+      margin-bottom: 3%;
+      width: 12vw;
+   }
+   .footerFirstColumnText {
+      font-size: 1vw;
+      letter-spacing: 0.1vw;
+      margin: 7% 0;
+      width: 77%;
+   }
+   .footerSecondColumn {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.88vw;
+      height: auto;
+   }
+   .footerThirdColumn {
+      display: flex;
+      flex-direction: column;
+   }
+   .imgGap {margin: 0.7vw 0;}
+   .imgEbu {width: 33%;}
+   .imgCineone {width: 55%;}
+   .imgHiflix {width: 22%;}
+   .footerRowText {
+      align-items: center; 
+      display: flex; 
+      flex-direction: row;
+      padding-top: 1vw;
+   }
+   .footerLogo {height: 1.5vw; width: 1.5vw;}
+   .footerFourthColumnText {font-size: 0.88vw; margin: 0; margin-left: 1.5vw;}
+   .footerBottomText {font-size: 0.88vw; margin: auto; padding: 3% 0;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .footer {padding: 0 5px;}
+   .tickitzFooterLogo {margin-top: 72px;}
+   .footerTextTitle {
+      font-family: 'Mulish';
+      font-size: 16px;
+      font-weight: 600;
+   }
+   .footerFirstColumnText {
+      margin: 24px 0 40px 0;
+   }
+   .footerSecondColumn {
+      width: 100%;
+      margin: auto;
+   }
+   .moviesListMobile {margin: 0 40px;}
+   .mobileCase {display: block; margin: 12px 0 48px 0;}
+   .imgCineone {margin: 0 24px;}
+   .footerFourthColumn {margin-top: 48px;}
+   .footerRowLogo {
+      display: flex; 
+      flex-direction: row; 
+      justify-content: space-between;
+      width: 188px;
+   }
+   .footerLogo {height: 18px; width: 18px;}
+   .footerFourthColumnText {display: none;}
+   .footerBottomText {padding: 64px 14px;}
+}

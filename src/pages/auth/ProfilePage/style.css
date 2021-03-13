@@ -1,0 +1,70 @@
+.leftSideProfile, .rightSideProfile{
+   align-items: center;
+   background: white;
+   border-radius: 2.5%;
+   display: flex;
+   flex-direction: column;
+}
+.topLeftProfile {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+.bottomLeftProfile {width: 100%;}
+.profileInfoTop{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+}
+.profilePicture {border-radius: 50%;}
+.profileTitle {color: #6E7191;}
+.loyaltyPointsText {color: #4E4B66; font-weight: 600; letter-spacing: 0.75px;}
+.moviegoersPointCard {width: 100%;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .profilePage {
+      background: #F5F6F8;
+      display: flex; 
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3% 7% 3% 8%;
+      width: 100%;
+   }
+   .leftSideProfile {height: 101vh; width: 28%;}
+   .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 2vw;}
+   .infoTextInsideProfile {color: #4E4B66; font-size: 1vw; font-weight: 600; letter-spacing: 2px;}
+   .tripleDots {height: 1.5vw; width: 1.5vw;}
+   .profilePicture {height: 10vw; margin: 8% 0; width: 10vw;}
+   .profileName {font-size: 1.2vw; font-weight: 600; letter-spacing: 0.75px;}
+   .profileTitle {font-size: 0.9vw;}
+   .bottomLeftProfile {padding: 2vw;}
+   .loyaltyPointsText {font-size: 0.9vw;}
+   .rightSideProfile {height: 121vh; padding: 1.5%; width: 68%;}
+   .moviegoersPointCard {margin: 1vw 0 3vw 0;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .profilePage {
+      background: #F5F6F8;
+      display: flex; 
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      width: 100%;
+   }
+   .leftSideProfile, .rightSideProfile {margin: 12px 0;}
+   .leftSideProfile {height: auto;}
+   .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 36px;}
+   .tripleDots {height: 15px; width: 15px;}
+   .profilePicture {height: 136px; margin: 24px 0; width: 136px;}
+   .profileName {font-size: 20px; font-weight: 600; letter-spacing: 0.75px;}
+   .profileTitle {font-size: 14px; letter-spacing: 0.75px;}
+   .bottomLeftProfile {padding: 36px;}
+   .loyaltyPointsText {font-size: 16px;}
+   .rightSideProfile {height: 888px; padding: 30px;}
+   .moviegoersPointCard {margin: 8px 0 40px 0;}
+}

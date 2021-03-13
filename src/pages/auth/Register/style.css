@@ -1,0 +1,21 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+.boldThis {font-weight: 600;}
+.mulishFont {font-family: 'Mulish';}
+.registerCheckBox {margin-right: 3%;}
+.agreeTerms {color: #696F79; letter-spacing: 0.75px;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .registerBigText {display: none;}
+   .registerSmallText {color: black; font-size: 1.3vw;  text-align: justify;}
+   .agreeTerms {font-size: 0.8vw;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .registerBigText {font-size: 26px; font-weight: 600; margin: 42px 0;}
+   .registerSmallText {display: none;}
+   .agreeTerms {font-size: 13px;}
+}

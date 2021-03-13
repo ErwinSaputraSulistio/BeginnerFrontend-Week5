@@ -1,0 +1,68 @@
+.navbarTop {
+   background: white;
+   position: sticky;
+   top: 0;
+   width: 100%;
+   z-index: 2;
+}
+.navSet {color: #414141;}
+.navBtn {background: white; border: none; padding: 0;}
+.navBtn:focus {outline: none;}
+
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .navbarTop {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      font-size: 1vw;
+      padding: 1% 7%;
+   }
+   .logoTickitz {height: 1.5vw; width: 6vw;}
+   .gapBetweenBtn {margin: 0 1.5vw;}
+   .hamMenu {display: none;}
+   .allRightsReserved {display: none;}
+   .searchLogo {height: 1vw; width: 1vw;}
+   .searchBarBorder {padding: 1% 7%; width: 300px;}
+   .searchBar {border: none; width: 93%;}
+   .searchBar:focus {outline: none;}
+   .dropdownMenuCenter {
+      left: 50% !important;
+      right: auto !important;
+      text-align: center !important;
+      transform: translate(-50%, 40%) !important;
+    }
+   .dropdownMenuSearch {
+      left: 50% !important;
+      right: auto !important;
+      text-align: center !important;
+      transform: translate(-111%, -28%) !important;
+   }
+   .signUp {
+      color: white;
+      background: #5F2EEA;
+      border-radius: 0.5vw;
+      padding: 5% 0;
+      text-align: center;
+   }
+   .hoverThis:hover {opacity: 0.5;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .hideFirst {display: none;}
+   .navbarTop {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+   }
+   .navHeader {align-items: center; display: flex; justify-content: space-between; padding: 35px;}
+   .logoTickitz {height: 22px; margin-left: 10px; width: 77px;}
+   .hamMenu {height: 16px; margin-right: 10px; width: 16px;}
+   .navSet {border-bottom: 1px solid #DEDEDE; padding: 5%; width: 100%;}
+   .navLocBtn {background: white; border: none;}
+   .navLocBtn:focus {outline: none;}
+   .allRightsReserved {color: #6E7191; font-size: 13px; letter-spacing: 0.75px; padding: 15% 5% 10% 5%; text-align: center;}
+   .signUpLink {display: none;}
+}

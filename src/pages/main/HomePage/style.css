@@ -1,0 +1,66 @@
+.showInAnimation {animation: showOpacity 1s;}
+@keyframes showOpacity{from{opacity: 0;} to{opacity: 1;}}
+
+.bodySetUp {padding: 0;}
+.nearestCinema {color: #A0A3BD; font-weight: 400;}
+.findOutNow {color: #5F2EEA; font-weight: 700;}
+.displayList{
+   align-items: center;
+   display: flex;
+   filter: brightness(70%);
+   justify-content: space-evenly;
+   padding: 25%;
+}
+@media (min-width: 768px){
+   .headerDesktop{
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: space-between;
+      padding-bottom: 10%;
+   }
+   .headerText{
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0 0 0 15%;
+   }
+   .headerDisplay {width: 50%;}
+   .displayList{
+      align-items: center;
+      display: flex;
+      filter: brightness(70%);
+      justify-content: space-evenly;
+      padding: 15% 25%;
+   }
+   .text {font-family: "Mulish"; margin: 0;}
+   .nearestCinema {font-size: 1.2vw;}
+   .findOutNow {font-size: 2.8vw;}
+   .display{
+      border-radius: 0.8vw; 
+      box-shadow: 1vw 1vw 2vw rgba(0, 0, 0, 0.3); 
+      height: 22vw;
+   }
+   .display-left {margin-top: 20%;}
+   .display-right {margin-bottom: 20%;}
+}
+@media (max-width: 768px){
+   .headerMobile {padding: 15% 7.5% 7.5% 7.5%;}
+   .nearestCinema {font-size: 3.5vw; margin: 0;}
+   .findOutNow {font-size: 9vw; margin: 0;}
+   .movieShow{
+      background-color: #FCFDFE;
+      height: auto;
+      padding-bottom: 33%;
+      width: 100%;
+   }
+   .displayMobile{
+      border-radius: 2vw; 
+      box-shadow: 2.5vw 2.5vw 5vw rgba(0, 0, 0, 0.3);
+      height: 88vw;
+      margin-left: 8px;
+      margin-right: 8px;
+   }
+   .display-left {margin-top: 72px;}
+   .display-right {margin-bottom: 72px;}
+}

@@ -1,0 +1,20 @@
+.resetBigText, .forgotPasswordText {margin: 0;}
+.resetSmallText {color: #8692A6;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .forgotPasswordText {display: none;}
+   .resetBigText {font-size: 1.2vw; font-weight: 600;}
+   .resetSmallText {font-size: 0.9vw;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+   .resetBigText {display: none}
+   .forgotPasswordText{
+      font-size: 26px;
+      font-weight: 600;
+      margin-top: 48px;
+   }
+   .resetSmallText {font-size: 15px; margin-bottom: 36px;}
+}
