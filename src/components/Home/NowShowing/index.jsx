@@ -21,7 +21,7 @@ export default class NowShowing extends Component {
          <div className="nowShowing">
             <div className="nowShowingHeader">
                <div class="textSet nowShowingText">Now Showing</div>
-               <a href="https://www.instagram.com/alegoplex.es" target="_blank"><div class="textSet viewAll">view all</div></a>
+               <a href="/now-showing/all" target="_blank"><div class="textSet viewAll">view all</div></a>
             </div>
             <div className="nowShowingList">
                {this.state.films.map((item) =>

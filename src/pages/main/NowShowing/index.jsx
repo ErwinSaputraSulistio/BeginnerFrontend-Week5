@@ -8,66 +8,79 @@ import Footer from '../../../components/Footer'
 export default class NowShowing extends Component {
    constructor(props){
       super(props)
-      this.state = ""
+      this.state = {
+         nowShowing: [],
+         nowShowingObject: ""
+      }
    }
    componentDidMount(){
       const paramsId = this.props.match.params.id
-      axios.get('http://localhost:2000/v1/tickets/' + paramsId)
+      this.callAxios(paramsId)
+   }
+   callAxios = (paramsId) => {
+      paramsId === undefined && (paramsId = 'all')
+      axios.get(process.env.REACT_APP_NOWSHOWING + paramsId)
       .then((res) => {
          const setUpResData = res.data.outputData[0].ticketId
          setUpResData === undefined ? alert(res.data.outputData) :
-         this.setState(res.data.outputData[0])
-         console.log(this.state)
+         this.setState({
+            nowShowing: res.data.outputData,
+            nowShowingLength: res.data.outputData.length
+         })
       })
       .catch((err) => {alert(err.message)})
+      
    }
    render(){
       return (
          <div className="showInAnimation">
             <Helmet>
-               <title>{this.state.movieName}</title>
+               <title>{this.state.nowShowingLength == 1 ? this.state.nowShowing[0].movieName : "Tickitz - Now Showing List"}</title>
             </Helmet>
             <Navbar/>
-            <div className="movieDetails">
+            {this.state.nowShowing.map((item) =>
+            <div className="nowShowingMovieDetails">
                <div className="movieDetailsImgBorder">
-                  <img className="movieDetailsImg" src={"/images/Home/Now Showing/" + this.state.ticketId + ".jpg"}/>
+                  <img className="movieDetailsImg" src={"/images/Home/Now Showing/" + item.ticketId + ".jpg"}/>
                </div>
                <div className="movieDetailsInfo">
                   <div className="movieDetailsTitleAndGenre">
-                     <p className="movieDetailsTitle">{this.state.movieName}</p>
-                     <p className="movieDetailsGenre">{this.state.movieGenre}</p>
+                     <p className="movieDetailsTitle">{item.movieName}</p>
+                     <p className="movieDetailsGenre">{item.movieGenre}</p>
                   </div>
                   <div className="movieDetailsMoreInfo">
                      <div className="movieDetailsRowOne">
                         <div className="insideMovieDetailsRowOne">
                            <div className="insideMovieDetailsRowAgain">
                               <p className="topTextMovieDetails">Release date</p>
-                              <p className="bottomTextMovieDetails">{this.state.releaseDate}</p>
+                              <p className="bottomTextMovieDetails">{item.releaseDate}</p>
                            </div>
                            <div className="insideMovieDetailsRowAgain">
                               <p className="topTextMovieDetails">Duration</p>
-                              <p className="bottomTextMovieDetails">{this.state.movieDuration}</p>
+                              <p className="bottomTextMovieDetails">{item.movieDuration}</p>
                            </div>
                         </div>
                      </div>
                      <div className="movieDetailsRowTwo">
                         <div className="insideMovieDetailsRowAgain">
                            <p className="topTextMovieDetails">Directed by</p>
-                           <p className="bottomTextMovieDetails">{this.state.directedBy}</p>
+                           <p className="bottomTextMovieDetails">{item.directedBy}</p>
                         </div>
                         <div className="insideMovieDetailsRowAgain">
                            <p className="topTextMovieDetails">Casts</p>
-                           <p className="bottomTextMovieDetails">{this.state.movieCasts}</p>
+                           <p className="bottomTextMovieDetails">{item.movieCasts}</p>
                         </div>
                      </div>
                   </div>
-                  <div className="lineBreaksMovieDetails"/>
+                  <div className="thisIsLineBreaksMovieDetails"/>
                   <div className="movieDetailsSynopsis">
                      <p className="synopsisText">Synopsis</p>
-                     <p className="afterSynopsisText">{this.state.movieSynopsis}</p>
+                     <p className="afterSynopsisText">{item.movieSynopsis}</p>
                   </div>
                </div>
+               <div className="borderLinesBetween"/>
             </div>
+            )}
             <Footer/>
          </div>
       )

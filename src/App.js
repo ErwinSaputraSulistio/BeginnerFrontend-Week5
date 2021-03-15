@@ -17,8 +17,9 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/reset-password" component={ResetPassword}/>
-        <Route path="/profile-page" component={ProfilePage}/>
+        <Route path="/profile-page/:id" component={ProfilePage}/>
         <Route path="/home-page" component={HomePage}/>
+        <Route path="/now-showing/all" component={NowShowing}/>
         <Route path="/now-showing/:id" component={NowShowing}/>
         <Route path="/upcoming-movies/:id" component={UpcomingMovies}/>
         <Route component={NotFound}/>

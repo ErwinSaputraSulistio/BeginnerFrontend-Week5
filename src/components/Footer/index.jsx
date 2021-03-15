@@ -20,7 +20,7 @@ export default class Footer extends Component {
                <p className="footerTextTitle">Explore</p>
                <div className="footerSecondColumn">
                   <Link className="footerText">Cinemas</Link>
-                  <Link className="moviesListMobile footerText">Movies List</Link>
+                  <Link className="moviesListMobile footerText" to="/now-showing/all">Movies List</Link>
                   <Link className="footerText">My Ticket</Link>
                   <Link className="mobileCase footerText">Notification</Link>
                </div>

@@ -1,7 +1,6 @@
-.leftSideProfile, .rightSideProfile{
+.leftSideProfile, .userUpdateZone, .userDeleteZone{
    align-items: center;
    background: white;
-   border-radius: 2.5%;
    display: flex;
    flex-direction: column;
 }
@@ -22,9 +21,30 @@
 .profileTitle {color: #6E7191;}
 .loyaltyPointsText {color: #4E4B66; font-weight: 600; letter-spacing: 0.75px;}
 .moviegoersPointCard {width: 100%;}
+.updateForm {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+.updateLabel {font-family: 'Mulish'; letter-spacing: 0.75px; width: 100%;}
+.updateInput {border: none;}
+.updateBtn {background-color: #3CB371; border: none; color: white;}
+.updateYourAccountText, .eraseYourAccountText {font-weight: 600; letter-spacing: 0.75px; margin-bottom: 0;}
+.userDeleteZone {width: 100%;}
+.deleteBtn {
+   background-color: indianred;
+   border: none;
+   color: white;
+   font-family: "Mulish";
+   width: 100%;
+}
+.eraseInput {border: none;}
+.eraseInput:focus {outline: none;}
 
 /* DESKTOP */
 @media (min-width: 768px){
+   .leftSideProfile, .userUpdateZone, .userDeleteZone{border-radius: 1vw;}
    .profilePage {
       background: #F5F6F8;
       display: flex; 
@@ -34,6 +54,7 @@
       width: 100%;
    }
    .leftSideProfile {height: 101vh; width: 28%;}
+   .rightSideProfile {display: flex; flex-direction: row; justify-content: space-between; width: 62%;}
    .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 2vw;}
    .infoTextInsideProfile {color: #4E4B66; font-size: 1vw; font-weight: 600; letter-spacing: 2px;}
    .tripleDots {height: 1.5vw; width: 1.5vw;}
@@ -42,8 +63,23 @@
    .profileTitle {font-size: 0.9vw;}
    .bottomLeftProfile {padding: 2vw;}
    .loyaltyPointsText {font-size: 0.9vw;}
-   .rightSideProfile {height: 121vh; padding: 1.5%; width: 68%;}
    .moviegoersPointCard {margin: 1vw 0 3vw 0;}
+   .userUpdateZone {height: 33vw; margin-bottom: 5%; padding: 3%; width: 48%;}
+   .updateForm {margin: 10% 0;}
+   .updateLabel {font-size: 1vw;}
+   .updateInputBorder {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; padding: 3% 5%; width: 100%;}
+   .updateInput {font-size: 0.8vw; width: 100%;}
+   .marginTopUserJobs {margin-top: 5%;}
+   .marginBottomUserJobs {margin-bottom: 5%;}
+   .updateBtn, .deleteBtn {border-radius: 0.5vw; font-size: 1vw; height: 3vw; width: 100%;}
+   .updateBtn {margin: 15% 0%;}
+   .updateYourAccountText, .eraseYourAccountText {font-size: 1.5vw;}
+   .userDeleteZone {height: 18.8vw; padding: 1.5%; width: 48%;}
+   .eraseYourAccountText {margin-top: 3%;}
+   .thisActionCantUndo {color: indianred; font-size: 1vw; margin-bottom: 5%;}
+   .deleteForm {align-items: center; display: flex; flex-direction: column; margin-top: 12%; padding: 0 5%; width: 100%;}
+   .eraseInputBorder {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; margin-bottom: 3%; padding: 2.5% 5%; width: 100%;}
+   .eraseInput {height: 2vw; font-size: 0.8vw; width: 100%;}
 }
 
 /* MOBILE */
@@ -53,9 +89,10 @@
       display: flex; 
       flex-direction: column;
       justify-content: space-between;
-      padding: 24px;
+      padding: 36px 24px;
       width: 100%;
    }
+   .leftSideProfile, .userUpdateZone, .userDeleteZone{border-radius: 12px;}
    .leftSideProfile, .rightSideProfile {margin: 12px 0;}
    .leftSideProfile {height: auto;}
    .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 36px;}
@@ -65,6 +102,18 @@
    .profileTitle {font-size: 14px; letter-spacing: 0.75px;}
    .bottomLeftProfile {padding: 36px;}
    .loyaltyPointsText {font-size: 16px;}
-   .rightSideProfile {height: 888px; padding: 30px;}
    .moviegoersPointCard {margin: 8px 0 40px 0;}
+   .userUpdateZone {height: auto; margin-bottom: 24px;}
+   .updateLabel {font-size: 14px;}
+   .updateBtn {margin-top: 60px;}
+   .marginTopUserJobs {margin-top: 24px;}
+   .marginBottomUserJobs {margin-bottom: 24px;}
+   .updateYourAccountText, .eraseYourAccountText {font-size: 20px; margin-top: 24px;}
+   .updateForm, .deleteForm {display: flex; flex-direction: column; justify-content: space-between; padding: 36px; width: 100%;}
+   .updateInputBorder, .eraseInputBorder {border: 1px solid #DEDEDE; border-radius: 5px; height: 48px; padding: 6px 18px;}
+   .updateBtn, .deleteBtn {border-radius: 5px; font-size: 16px; height: 48px; width: 100%;}
+   .userDeleteZone {height: auto; margin-bottom: 12px;}
+   .thisActionCantUndo {color: indianred; font-size: 12px;}
+   .eraseInput {font-size: 16px; height: 36px; width: 100%;}
+   .deleteBtn {margin-top: 12px;}
 }

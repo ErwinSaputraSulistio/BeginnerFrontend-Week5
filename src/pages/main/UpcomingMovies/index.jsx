@@ -12,7 +12,7 @@ export default class UpcomingMovies extends Component {
    }
    componentDidMount(){
       const paramsId = this.props.match.params.id
-      axios.get('http://localhost:2000/v1/upcomings/' + paramsId)
+      axios.get(process.env.REACT_APP_UPCOMING + paramsId)
       .then((res) => {
          const setUpResData = res.data.outputData[0].upcomingId
          setUpResData === undefined ? alert(res.data.outputData) :

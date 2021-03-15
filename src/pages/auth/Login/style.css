@@ -1,6 +1,8 @@
 @import url("https://rsms.me/inter/inter.css");
 @import url("https://fonts.googleapis.com/css?family=Mulish");
 
+input:focus {outline: none;}
+input:invalid {box-shadow: none;}
 .noMargin {margin: 0 !important;}
 .hiddenTickitzLogo {display: none;}
 .mulishFont {font-family: 'Mulish';}

@@ -39,13 +39,14 @@
       text-align: center !important;
       transform: translate(-111%, -28%) !important;
    }
-   .signUp {
+   .signIn {
       color: white;
       background: #5F2EEA;
       border-radius: 0.5vw;
       padding: 5% 0;
       text-align: center;
    }
+   .imgNavbar {border-radius: 50%; height: 2.5vw; margin: auto; width: 2.5vw;}
    .hoverThis:hover {opacity: 0.5;}
 }
 
@@ -64,5 +65,5 @@
    .navLocBtn {background: white; border: none;}
    .navLocBtn:focus {outline: none;}
    .allRightsReserved {color: #6E7191; font-size: 13px; letter-spacing: 0.75px; padding: 15% 5% 10% 5%; text-align: center;}
-   .signUpLink {display: none;}
+   .signInLink, .imgNavbar {display: none;}
 }

@@ -14,13 +14,15 @@
 
 /* DESKTOP */
 @media (min-width: 768px){
-   .movieDetails {
+   .nowShowingMovieDetails {
+      border-bottom: 0.1vw solid #DEDEDE;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       height: auto;
-      padding: 3vw 8vw 8vw 8vw;
-      width: 100%;
+      margin: 0 8vw;
+      padding: 8vw 0 10vw 0;
+      width: auto;
    }
    .movieDetailsMoreInfo {
       margin-top: 3%;
@@ -55,7 +57,7 @@
       margin: 0;
    }
    .bottomTextMovieDetails {color: #121212;font-size: 1vw;}
-   .lineBreaksMovieDetails {
+   .thisIsLineBreaksMovieDetails {
       border-top: 0.1vw solid #DEDEDE;
       margin: 1% 0;
       width: 100%;
@@ -66,7 +68,16 @@
 
 /* MOBILE */
 @media (max-width: 768px){
-   .movieDetails {align-items: center; background: #FCFDFE; display: flex; flex-direction: column; height: auto; padding: 36px 24px;}
+   .nowShowingMovieDetails {
+      align-items: center; 
+      background: #FCFDFE; 
+      border-bottom: 1px solid #DEDEDE;
+      display: flex; 
+      flex-direction: column; 
+      height: auto; 
+      padding: 36px 24px;
+      padding-top: 60px;
+   }
    .movieDetailsImgBorder {border: 0.5px solid #DEDEDE; border-radius: 8px; height: 300px; padding: 24px; width: 200px;}
    .movieDetailsImg {height: 100%; width: 100%;}
    .movieDetailsTitle {font-size: 20px; font-weight: 600; margin: 0; text-align: center; padding: 32px 0 8px 0;}
@@ -75,11 +86,7 @@
    .movieDetailsRowTwo {width: 50%;}
    .topTextMovieDetails {color: #8692A6; font-size: 13px; margin: 0;}
    .bottomTextMovieDetails {font-size: 15px;}
-   .lineBreaksMovieDetails {
-      border-top: 0.5px solid #DEDEDE;
-      margin: 24px 0;
-      width: 100%;
-   }
+   .thisIsLineBreaksMovieDetails {display: none;}
    .synopsisText {font-size: 16px;}
    .afterSynopsisText {color: #4E4B66; font-size: 13px; letter-spacing: 0.75px;}
 }
