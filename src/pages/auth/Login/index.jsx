@@ -33,7 +33,7 @@ export default class Login extends Component {
             window.location = "/home-page"
          }
       })
-      .catch((err) => {alert(err.message)})
+      .catch(() => {alert("Gagal login, email belum terdaftar atau password salah!")})
    };
    render(){   
       return(
