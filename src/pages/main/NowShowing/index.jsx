@@ -21,6 +21,7 @@ export default class NowShowing extends Component {
       paramsId === undefined && (paramsId = 'all')
       axios.get(process.env.REACT_APP_NOWSHOWING + paramsId)
       .then((res) => {
+         console.log(res.data)
          const setUpResData = res.data.outputData[0].ticketId
          setUpResData === undefined ? alert(res.data.outputData) :
          this.setState({
