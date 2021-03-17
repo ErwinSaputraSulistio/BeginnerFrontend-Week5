@@ -2,3 +2,8 @@
   from = "/*"
   to = "/home-page"
   status = 200
+
+[[redirects]]
+  from = "/src/pages/main/HomePage"
+  to = "/home-page"
+  status = 200
