@@ -1,9 +1,4 @@
 [[redirects]]
   from = "/*"
-  to = "/home-page"
-  status = 200
-
-[[redirects]]
-  from = "/src/pages/main/NowShowing"
-  to = "/now-showing"
+  to = "/index.html"
   status = 200
