@@ -24,7 +24,7 @@ export default class Navbar extends Component {
    
    // LIVE SEARCH - MOVIE
    searchMovieWithAxios = (valueParams) => {
-      axios.get("http://localhost:2000/v1/tickets?movie-name=" + valueParams)
+      axios.get(process.env.REACT_APP_NOWSHOWING_NOSLASH + "?movie-name=" + valueParams)
       .then((res) => {this.setState({ getMovieData: res.data.outputData })})
       .catch(() => {this.setState({ getMovieData : [] })})
    }

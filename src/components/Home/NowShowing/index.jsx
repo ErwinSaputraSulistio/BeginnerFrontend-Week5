@@ -10,10 +10,8 @@ export default class NowShowing extends Component {
       }
    }
    componentDidMount(){
-      axios.get('http://127.0.0.1:2000/v1/tickets?page=1&limit=6')
-      .then((res) => {
-         this.setState({ films: res.data.outputData })
-      })
+      axios.get(process.env.REACT_APP_NOWSHOWING_NOSLASH + '?page=1&limit=6')
+      .then((res) => {this.setState({ films: res.data.outputData })})
       .catch((err) => {alert(err.message)})
    }
    render(){

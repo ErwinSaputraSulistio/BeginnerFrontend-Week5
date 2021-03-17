@@ -10,7 +10,7 @@ export default class UpcomingMovies extends Component {
       }
    }
    componentDidMount(){
-      axios.get('http://127.0.0.1:2000/v1/upcomings?page=1&limit=5')
+      axios.get(process.env.REACT_APP_UPCOMING_NOSLASH + '?page=1&limit=5')
       .then((res) => {
          this.setState({ films: res.data.outputData })
       })
