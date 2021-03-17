@@ -4,6 +4,6 @@
   status = 200
 
 [[redirects]]
-  from = "/src/pages/main/HomePage"
-  to = "/home-page"
+  from = "/src/pages/main/NowShowing"
+  to = "/now-showing"
   status = 200
