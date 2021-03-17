@@ -22,7 +22,7 @@ export default class NowShowing extends Component {
       console.log(paramsId)
 
       console.log(process.env.REACT_APP_NOWSHOWING)
-      axios.get(process.env.REACT_APP_NOWSHOWING + paramsId)
+      axios.get('http://localhost:2000/v1/tickets/' + paramsId)
       .then((res) => {
          const setUpResData = res.data.outputData[0].ticketId
          setUpResData === undefined ? alert(res.data.outputData) :
