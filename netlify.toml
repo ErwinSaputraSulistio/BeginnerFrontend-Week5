@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/src/pages/main/HomePage"
+  from = "/*"
   to = "/home-page"
   status = 200
