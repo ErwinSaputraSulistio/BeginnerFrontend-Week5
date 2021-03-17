@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/src/pages/main/HomePage"
+  to = "/home-page"
+  status = 200
