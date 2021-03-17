@@ -11,6 +11,12 @@
    display: flex;
    justify-content: space-between;
 }
+.adminMovieBtnArea {display: flex; justify-content: space-evenly; width: 100%;}
+.adminNowShowingBtn {border: none;}
+.adminUpdateFilmBtn, .adminRemoveFilmBtn {color: white; font-weight: 600; letter-spacing: 0.75px;}
+.adminUpdateFilmBtn {background: #3CB371;}
+.adminRemoveFilmBtn {background: indianred;}
+
 
 /* DESKTOP */
 @media (min-width: 768px){
@@ -64,6 +70,9 @@
    }
    .synopsisText {font-size: 1.2vw; font-weight: 600; margin-top: 1%;}
    .afterSynopsisText {color: #4E4B66; font-size: 0.9vw; letter-spacing: 0.75px;}
+   .adminMovieBtnArea {flex-direction: row;}
+   .adminNowShowingBtn {font-size: 1vw; width: 33%;}
+   .adminUpdateFilmBtn, .adminRemoveFilmBtn {border-radius: 0.5vw; margin-top: 1%; padding: 1% 0;}
 }
 
 /* MOBILE */
@@ -89,4 +98,6 @@
    .thisIsLineBreaksMovieDetails {display: none;}
    .synopsisText {font-size: 16px;}
    .afterSynopsisText {color: #4E4B66; font-size: 13px; letter-spacing: 0.75px;}
+   .adminUpdateFilmBtn, .adminRemoveFilmBtn {border-radius: 12px; font-weight: 600; letter-spacing: 0.75px; padding: 12px;}
+   .adminMovieBtnArea {flex-direction: column;}
 }

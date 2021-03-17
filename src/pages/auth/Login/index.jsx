@@ -19,9 +19,19 @@ export default class Login extends Component {
       const { loginEmail, loginPassword } = this.state
       axios.get(process.env.REACT_APP_USER + 'login?email=' + loginEmail + '&pass=' + loginPassword)
       .then((res) => {
-         this.setState({ loginData: res.data.outputData[0] })
-         alert("Selamat datang, " + this.state.loginData.realName + "!")
-         window.location = "/profile-page/" + this.state.loginData.userId
+         if(localStorage.getItem("isLoggedIn") === "true"){
+            alert("Anda sudah login " + localStorage.getItem("userName") + ", jika ingin mengganti user maka harap logout dahulu!")
+            window.location = "/home-page"
+         }
+         else{
+            this.setState({ loginData: res.data.outputData[0] })
+            localStorage.setItem("isLoggedIn", true)
+            localStorage.setItem("userId", this.state.loginData.userId)
+            localStorage.setItem("userName", this.state.loginData.realName)
+            localStorage.setItem("userRole", this.state.loginData.userRole)
+            alert("Login berhasil! Selamat datang, " + this.state.loginData.userRole + " " + this.state.loginData.realName + "!")
+            window.location = "/home-page"
+         }
       })
       .catch(() => {alert("Gagal login, email belum terdaftar atau password salah!")})
    };

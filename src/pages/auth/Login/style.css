@@ -101,7 +101,7 @@ input:invalid {box-shadow: none;}
    .signInBigText{font-size: 2.7vw; font-weight: 600;}
    .signInSmallText{font-size: 0.9vw; color: #AAAAAA; text-align: justify;}
    .labelInput{color: #4E4B66; font-family: "Mulish"; font-size: 0.8vw;}
-   .input {font-size: 0.8vw;}
+   .input {font-size: 0.8vw; width: 18%;}
    .input:focus{color: black; outline: none;}
    .input:invalid{box-shadow:none;}
    .eyeLogo{

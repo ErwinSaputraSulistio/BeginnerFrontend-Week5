@@ -31,6 +31,25 @@ export default class NowShowing extends Component {
       .catch((err) => {alert(err.message)})
       
    }
+
+   // ADMIN - CHANGE DATA
+   updateThisNowShowingMovie(updateThisMovieBy){
+      localStorage.setItem("updateMovieId", updateThisMovieBy.ticketId)
+      localStorage.setItem("adminMoviesAction", "updateMovies")
+      window.location = "/admin/add-or-update-movies"
+   }
+
+   // ADMIN - ERASE MOVIE
+   deleteThisNowShowingMovie(deleteThisMovieBy){
+      axios.delete(process.env.REACT_APP_NOWSHOWING + deleteThisMovieBy.ticketId)
+      .then(() => {
+         alert("Berhasil menghapus film '" + deleteThisMovieBy.movieName + "', silahkan refresh page untuk melihat perubahan!")
+         window.location = "/now-showing/all"
+      })
+      .catch((err) => {alert(err.message)})
+   }
+
+   // RENDER
    render(){
       return (
          <div className="showInAnimation">
@@ -41,7 +60,7 @@ export default class NowShowing extends Component {
             {this.state.nowShowing.map((item) =>
             <div className="nowShowingMovieDetails">
                <div className="movieDetailsImgBorder">
-                  <img className="movieDetailsImg" src={"/images/Home/Now Showing/" + item.ticketId + ".jpg"}/>
+                  <img className="movieDetailsImg" src={item.movieImgUrl}/>
                </div>
                <div className="movieDetailsInfo">
                   <div className="movieDetailsTitleAndGenre">
@@ -77,6 +96,12 @@ export default class NowShowing extends Component {
                      <p className="synopsisText">Synopsis</p>
                      <p className="afterSynopsisText">{item.movieSynopsis}</p>
                   </div>
+                  {localStorage.getItem("userRole") === "admin" ?
+                     <div className="adminMovieBtnArea">
+                        <button className="hoverThis adminNowShowingBtn adminUpdateFilmBtn" onClick={this.updateThisNowShowingMovie.bind(this, item)}>Update Newest Data</button>
+                        <button className="hoverThis adminNowShowingBtn adminRemoveFilmBtn" onClick={this.deleteThisNowShowingMovie.bind(this, item)}>Remove This Film</button>
+                     </div>
+                  : null}
                </div>
                <div className="borderLinesBetween"/>
             </div>

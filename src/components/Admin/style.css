@@ -1,0 +1,56 @@
+.formAdminMovies {
+    background: #F5F6F8;
+    display: flex;
+    flex-direction: column;
+ }
+ .inputAdminMovies {border: none; width: 100%;}
+ .inputAdminMovies:focus {border-color: black;}
+ .adminMovieBtn {background: #5F2EEA; border: none; color: white; letter-spacing: 0.75px;}
+ .adminMovieBtn:hover {opacity: 0.5;}
+ 
+ /* DESKTOP */
+ @media (min-width: 768px){
+    .formAdminMovies {
+       margin: auto;
+       padding: 0 5%;
+       width: 55%;
+    }
+    .helloAdminText {font-size: 1.5vw; letter-spacing: 0.75px; margin: 10% 0; text-align: center;}
+    .inputAdminMovies {
+       border: 0.1vw solid #DEDEDE;
+       border-radius: 0.5vw;
+       font-size: 0.8vw;
+       margin-bottom: 3%;
+       padding: 3% 5%;
+       width: 100%;
+    }
+    .inputAdminMoviesSynopsis {
+       height: auto;
+       padding-bottom: 25%;
+    }
+    .adminMovieBtn {border-radius: 1vw; font-size: 1vw; margin: auto; margin-top: 10%; margin-bottom: 15%; padding: 3%; width: 50%;}
+ }
+ 
+ /* MOBILE */
+ @media (max-width: 768px){
+    .formAdminMovies {
+       margin: auto;
+       padding: 0 5%;
+       width: 100%;
+    }
+    .helloAdminText {font-size: 15px; letter-spacing: 0.75px; margin: 10% 0; text-align: center;}
+    .inputAdminMovies {
+       border: 1px solid #DEDEDE;
+       border-radius: 8px;
+       font-size: 12px;
+       margin-bottom: 3%;
+       padding: 3% 5%;
+       width: 100%;
+    }
+    .inputAdminMoviesSynopsis {
+       height: auto;
+       margin-bottom: 60px;
+       padding-bottom: 120px;
+    }
+    .adminMovieBtn {font-size: 15px; border-radius: 8px; height: 60px; margin-bottom: 60px;}
+ }

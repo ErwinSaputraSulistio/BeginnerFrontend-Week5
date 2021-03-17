@@ -7,6 +7,7 @@ import HomePage from './pages/main/HomePage'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import NowShowing from './pages/main/NowShowing'
 import UpcomingMovies from './pages/main/UpcomingMovies'
+import AddOrUpdateMovies from './pages/admin/addOrUpdateMovies'
 import NotFound from './pages/NotFound'
 
 
@@ -17,11 +18,12 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/reset-password" component={ResetPassword}/>
-        <Route path="/profile-page/:id" component={ProfilePage}/>
+        <Route path="/profile-page" component={ProfilePage}/>
         <Route path="/home-page" component={HomePage}/>
         <Route path="/now-showing/all" component={NowShowing}/>
         <Route path="/now-showing/:id" component={NowShowing}/>
         <Route path="/upcoming-movies/:id" component={UpcomingMovies}/>
+        <Route path="/admin/add-or-update-movies" component={AddOrUpdateMovies}/>
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>

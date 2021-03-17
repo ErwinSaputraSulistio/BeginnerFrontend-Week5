@@ -12,19 +12,21 @@ export default class Register extends Component {
          newEmail: '',
          newPassword: '',
          defaultNewJob: 'New Moviegoers',
-         defaultNewProfileImage: 'https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png'
+         defaultNewProfileImage: 'https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png',
+         defaultUserRole: 'member'
       }
     }
     handleInputChange = (e) => {this.setState({[e.target.name]: e.target.value})}
     handleSubmit = (e) => {
       e.preventDefault()
-      const { defaultNewName, newEmail, newPassword, defaultNewJob, defaultNewProfileImage } = this.state
+      const { defaultNewName, newEmail, newPassword, defaultNewJob, defaultNewProfileImage, defaultUserRole } = this.state
       const newData = {
          realName: defaultNewName,
          userEmail: newEmail,
          userPassword: newPassword,
          userJobs: defaultNewJob,
-         profileImages: defaultNewProfileImage
+         profileImages: defaultNewProfileImage,
+         userRole: defaultUserRole
       }
       axios.post(process.env.REACT_APP_USER, newData)
       .then((res) => {

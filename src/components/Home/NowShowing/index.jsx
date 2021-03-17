@@ -26,7 +26,7 @@ export default class NowShowing extends Component {
             <div className="nowShowingList">
                {this.state.films.map((item) =>
                 <div className="nowShowingMovie">
-                     <img class="nowShowingMovieImg" src = {"/images/Home/Now Showing/" + item.ticketId + ".jpg"}/>
+                     <img class="nowShowingMovieImg" src = {item.movieImgUrl}/>
                      <div className="showWhenHover titleBorder">
                         <div className="textSet nowShowingTitle">{item.movieName}</div>
                         <div className="textSet nowShowingGenre">{item.movieGenre}</div>

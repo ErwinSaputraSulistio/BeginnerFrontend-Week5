@@ -8,7 +8,7 @@
 .navSet {color: #414141;}
 .navBtn {background: white; border: none; padding: 0;}
 .navBtn:focus {outline: none;}
-
+.userRedBtn {background: indianred; border: none; color: white;}
 
 /* DESKTOP */
 @media (min-width: 768px){
@@ -20,13 +20,27 @@
       padding: 1% 7%;
    }
    .logoTickitz {height: 1.5vw; width: 6vw;}
-   .gapBetweenBtn {margin: 0 1.5vw;}
+   .gapBetweenBtn {margin: 0 1vw;}
    .hamMenu {display: none;}
    .allRightsReserved {display: none;}
    .searchLogo {height: 1vw; width: 1vw;}
-   .searchBarBorder {padding: 1% 7%; width: 300px;}
+   .searchBarBorder {padding: 3%; width: 27vw;}
    .searchBar {border: none; width: 93%;}
    .searchBar:focus {outline: none;}
+   .searchResultBorder {
+      align-items: center;
+      border-top: 0.1vw solid #DEDEDE; 
+      display: flex;
+      flex-direction: row;
+      padding: 3%; 
+      width: 27vw;
+   }
+   .searchResultBorder:hover {background: #DEDEDE;}
+   .searchResultImgSize {border-radius: 0.5vw; height: 6vw; margin: 0 1vw; width: 4vw;}
+   .searchResultMovieName {color: black; font-size: 1vw;}
+   .searchResultMovieGenre {color: #A0A3BD; font-size: 0.7vw;}
+   .movieSearchResultText {letter-spacing: 0.75px; padding: 0 1vw; text-align: left;}
+   .dropdown-menu {padding: 0 !important;}
    .dropdownMenuCenter {
       left: 50% !important;
       right: auto !important;
@@ -35,10 +49,31 @@
     }
    .dropdownMenuSearch {
       left: 50% !important;
+      margin-top: -10% !important;
       right: auto !important;
       text-align: center !important;
-      transform: translate(-111%, -28%) !important;
+      transform: translate(-111%, 0) !important;
    }
+   .dropdownUser {
+      border-radius: 1vw !important;
+      left: 50% !important;
+      right: auto !important;
+      text-align: center !important;
+      transform: translate(-12vw, 3vw) !important;
+   }
+   .userDropdownMenu:hover {background: white !important;}
+   .userDropdownWrapper {padding: 1vw 3vw; width: 20vw;}
+   .userDropdownArea, .userBtnArea {display: flex; flex-direction: row; width: 100%;}
+   .userDropdownArea {margin-bottom: 10%;}
+   .userBtnArea {align-items: center; justify-content: space-between; margin-top: 5%;}
+   .userUpdateBtn, .userRedBtn, .addOrUpdateMovies {border-radius: 0.5vw; font-size: 0.8vw; font-weight: 600; letter-spacing: 0.75px; padding: 0.5vw 1vw; width: 47%;}
+   .userUpdateBtn {background: #3CB371; color: white;}
+   .userUpdateBtn:hover {color:white; opacity: 0.5;}
+   .userProfileImage {border-radius: 50%; height: 5vw; width: 5vw;}
+   .userProfileNameAndTitle {padding: 1vw; padding-right: 0; text-align: left; width: 66%;}
+   .userProfileName, .userProfileTitle {float: left; margin: 0;}
+   .userProfileName {font-size: 1vw; font-weight: 600;}
+   .userProfileTitle {color: #6E7191; font-size: 0.8vw;}
    .signIn {
       color: white;
       background: #5F2EEA;
@@ -47,7 +82,11 @@
       text-align: center;
    }
    .imgNavbar {border-radius: 50%; height: 2.5vw; margin: auto; width: 2.5vw;}
+   .imgNavbar:hover {cursor: pointer;}
    .hoverThis:hover {opacity: 0.5;}
+
+   /* ADMIN ONLY */
+   .addOrUpdateMovies {background: #5F2EEA; color: white; margin-top: 5%; width: 100%;}
 }
 
 /* MOBILE */
