@@ -2,6 +2,12 @@
     Erwin Saputra Sulistio - Fullstack Web 8, 
     Beginner Frontend - Week 5.
 
+![Tickitz - Login](https://user-images.githubusercontent.com/77045083/116245225-f147a400-a792-11eb-9b50-e54c1b55a466.png)  
+
+![Tickitz - Order Page](https://user-images.githubusercontent.com/77045083/116245297-07556480-a793-11eb-9045-2b3becfa3e2a.png)  
+
+![Tickitz - Ticket Result](https://user-images.githubusercontent.com/77045083/116245316-0cb2af00-a793-11eb-8666-f6a8cf532a53.png)  
+
 ### Tickitz - Netlify Links :  
 
 [![made-with-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
@@ -18,4 +24,4 @@
 1.) Install Beginner Backend - Week 4, you can find it in one of my repositories,  
 (or here's the link) : https://github.com/ErwinSaputraSulistio/BeginnerBackend-Week4  
 2.) Go access one of the Netlify Links above, then see the result.
-    
+
