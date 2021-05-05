@@ -22,6 +22,6 @@
 
 ### How to install?
 1.) Install Intermediate Backend - Week 6, you can find it in one of my repositories,  
-(or here's the link) : https://github.com/ErwinSaputraSulistio/IntermediateBackend-Week6
+(or here's the link) : https://github.com/ErwinSaputraSulistio/IntermediateBackend-Week6  
 2.) Go access one of the Netlify Links above, then see the result.
 
