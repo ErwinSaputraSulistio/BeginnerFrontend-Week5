@@ -2,7 +2,11 @@
     Erwin Saputra Sulistio - Fullstack Web 8, 
     Beginner Frontend - Week 5.
 
+![Tickitz - Movies](https://user-images.githubusercontent.com/77045083/117106829-bead3500-adaa-11eb-87dd-5c5d0d248e92.png)  
+
 ![Tickitz - Login](https://user-images.githubusercontent.com/77045083/116245225-f147a400-a792-11eb-9b50-e54c1b55a466.png)  
+
+![Tickitz - Booking](https://user-images.githubusercontent.com/77045083/117106474-1d25e380-adaa-11eb-8228-3808e68c8167.png)  
 
 ![Tickitz - Order Page](https://user-images.githubusercontent.com/77045083/116245297-07556480-a793-11eb-9045-2b3becfa3e2a.png)  
 
