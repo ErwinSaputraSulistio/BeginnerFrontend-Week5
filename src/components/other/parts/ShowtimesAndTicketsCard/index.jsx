@@ -13,12 +13,6 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
       .then((res) => { dispatch({type: "CINEMA_ALL", payload: res.data.outputData}) })
       .catch((err) => {alert(err.message)})
    }
-   // SHOWTIMES & TICKETS (TICKITZ)
-   const setStartTime = (e) => {
-      localStorage.setItem("startTime", e.target.getAttribute("value")), 
-      localStorage.setItem("cinemaUrl", e.target.getAttribute("cinemaUrl")), 
-      localStorage.setItem("cinemaName", e.target.getAttribute("cinemaName"))
-   }
    const[cinemaByLocation, setCinema] = useState([])
    const filterCinemaByLocation = () => {
       if(allCinema.length === 0) { return null }
@@ -55,10 +49,10 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
                <div className="timeFlexRow mulish">
                   <div className="cardFlexColumn">
                      <div className="cardFlexRow timeGap">
-                        {firstFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item} onClick={setStartTime}>{item}</Link>) })}
+                        {firstFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item}>{item}</Link>) })}
                      </div>
                      <div className="cardFlexRow timeGap">
-                        {lastFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item} onClick={setStartTime}>{item}</Link>) })}
+                        {lastFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item}>{item}</Link>) })}
                      </div>
                   </div>
                </div>
