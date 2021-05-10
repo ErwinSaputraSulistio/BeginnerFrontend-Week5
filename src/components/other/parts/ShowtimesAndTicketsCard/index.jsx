@@ -7,7 +7,7 @@ import axios from 'axios'
 
 // SHOWTIMES & TICKETS (TICKITZ)
 const setStartTime = (e) => {
-   localStorage.setItem("startTime", e.target.getAttribute("value")), 
+   // localStorage.setItem("startTime", e.target.getAttribute("value")), 
    localStorage.setItem("cinemaUrl", e.target.getAttribute("cinemaUrl")), 
    localStorage.setItem("cinemaName", e.target.getAttribute("cinemaName"))
 }
