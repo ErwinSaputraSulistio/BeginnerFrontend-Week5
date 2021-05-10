@@ -6,7 +6,7 @@ import { Link } from'react-router-dom'
 import Swal from 'sweetalert2'
 
 export default function Login() {
-   const [saveAllLoginData, useStateForLogin] = useState({
+   const [saveAllLoginData, setLogin] = useState({
       loginEmail: '',
       loginPassword: '',
       jwtToken: '',
@@ -19,8 +19,8 @@ export default function Login() {
          "question")
       .then(() => {window.location = "/home-page"})
    }
-   const passwordVisibility = () => {useStateForLogin({...saveAllLoginData, showPassword: !saveAllLoginData.showPassword})}
-   const loginChange = (e) => {useStateForLogin({...saveAllLoginData, [e.target.name]: e.target.value})}
+   const passwordVisibility = () => {setLogin({...saveAllLoginData, showPassword: !saveAllLoginData.showPassword})}
+   const loginChange = (e) => {setLogin({...saveAllLoginData, [e.target.name]: e.target.value})}
    const loginSubmit = (e) => {
       e.preventDefault()
       const { loginEmail, loginPassword } = saveAllLoginData

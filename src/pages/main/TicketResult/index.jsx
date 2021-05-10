@@ -10,11 +10,11 @@ import Swal from 'sweetalert2'
 
 export default function TicketResult(){
    const paramsId = useParams().id
-   const [transactionData, useTransaction] = useState({})
+   const [transactionData, setTransaction] = useState({})
    useEffect(() => {
       axios.get(process.env.REACT_APP_TRANSACTION + "number/" + paramsId)
       .then((res) => {
-         useTransaction(res.data.outputData[0])
+         setTransaction(res.data.outputData[0])
          console.log(res.data.outputData[0])
       })
       .catch(() => {})

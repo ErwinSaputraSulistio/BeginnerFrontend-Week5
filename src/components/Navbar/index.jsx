@@ -5,14 +5,14 @@ import {Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 export default function Navbar(){
-   const [userData, useUserData] = useState("")
-   const [getMovieData, useMovieData] = useState([])
-   const [searchedMovie, useSearch] = useState("")
+   const [userData, setUserData] = useState("")
+   const [getMovieData, setMovieData] = useState([])
+   const [searchedMovie, setSearch] = useState("")
    
    // AXIOS & SET DATA
    useEffect(() => {
       axios.get(process.env.REACT_APP_USER + localStorage.getItem("userId"))
-      .then((res) => { useUserData(res.data.outputData[0]) })
+      .then((res) => { setUserData(res.data.outputData[0]) })
       .catch((err) => { alert(err.message) })
    }, [])
    const {profileImages, realName, userJobs, userRole} = userData
@@ -26,18 +26,18 @@ export default function Navbar(){
    // LIVE SEARCH - MOVIE
    const liveSearchMovieChange = (e) => {
       if(e.target.value === "") { 
-         useMovieData([])
-         useSearch("")
+         setMovieData([])
+         setSearch("")
       }
       else{
          axios.get(process.env.REACT_APP_NOWSHOWING_NOSLASH + "?movie-name=" + e.target.value)
          .then((res) => {
-            useMovieData(res.data.outputData)
-            useSearch(e.target.value)
+            setMovieData(res.data.outputData)
+            setSearch(e.target.value)
          })
          .catch(() => { 
-            useMovieData([])
-            useSearch(e.target.value)
+            setMovieData([])
+            setSearch(e.target.value)
          })
       }
    }

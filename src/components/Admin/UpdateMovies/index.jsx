@@ -5,20 +5,20 @@ import '../style.css'
 import Swal from 'sweetalert2'
 
 export default function UpdateMovies(){
-   const [movieImg, useMovieImg] = useState("")
-   const [updateData, useUpdateData] = useState("")
+   const [movieImg, setMovieImg] = useState("")
+   const [updateData, setUpdateData] = useState("")
 
    // BASE CONF
    useEffect(() => {
       axios.get(process.env.REACT_APP_NOWSHOWING + localStorage.getItem("updateMovieId"))
-      .then((res) => {useUpdateData(res.data.outputData[0])})
+      .then((res) => {setUpdateData(res.data.outputData[0])})
       .catch((err) => {alert(err.message)})
    }, [])
    
 
    // UPDATE MOVIE DATA
-   const updateMovieImg = (e) => { useMovieImg(e.target.files[0]) }
-   const updateMovieHandleInput = (e) => { useUpdateData({...updateData, [e.target.name]: e.target.value}) }
+   const updateMovieImg = (e) => { setMovieImg(e.target.files[0]) }
+   const updateMovieHandleInput = (e) => { setUpdateData({...updateData, [e.target.name]: e.target.value}) }
    const updateMovieSubmit = (e) => {
       e.preventDefault()
       const {

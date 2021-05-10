@@ -19,7 +19,7 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
       .then((res) => { dispatch({type: "CINEMA_ALL", payload: res.data.outputData}) })
       .catch((err) => {alert(err.message)})
    }
-   const[cinemaByLocation, useCinema] = useState([])
+   const[cinemaByLocation, setCinema] = useState([])
    const filterCinemaByLocation = () => {
       if(allCinema.length === 0) { return null }
       else{
@@ -29,11 +29,11 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
                currentFilter.push(allCinema[i])
             }
          }
-         useCinema(currentFilter)
+         setCinema(currentFilter)
       }
    }
    useEffect(() => { getCinema() }, [])
-   useEffect(() => { useCinema(allCinema) }, [allCinema])
+   useEffect(() => { setCinema(allCinema) }, [allCinema])
    useEffect(() => { if(selectedCity !== "Location") { filterCinemaByLocation() } }, [selectedCity])
    return(
       <div className="ticketsCardRow">

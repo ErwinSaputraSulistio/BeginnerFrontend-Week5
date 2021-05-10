@@ -9,7 +9,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 export default function PaymentPage(){
-   const [buyerData, useBuyerData] = useState({
+   const [buyerData, setBuyerData] = useState({
       buyerName: null,
       buyerEmail: null,
       buyerPhoneNumber: null,
@@ -22,14 +22,14 @@ export default function PaymentPage(){
       axios.get(process.env.REACT_APP_TRANSACTION + "number/" + paramsId)
       .then((res) => { 
          dispatch({type: "TRANSACTION_ID", payload: res.data.outputData[0]})
-         useBuyerData({buyerName: res.data.outputData[0].ticketBuyer, buyerEmail: res.data.outputData[0].buyerEmail, buyerPhoneNumber: res.data.outputData[0].phoneNumber})
+         setBuyerData({buyerName: res.data.outputData[0].ticketBuyer, buyerEmail: res.data.outputData[0].buyerEmail, buyerPhoneNumber: res.data.outputData[0].phoneNumber})
       })
       .catch((err) => {
          // window.location = "/profile-page/" + localStorage.getItem("userId")
       })
    }
-   const setPaymentMethod = (e) => { useBuyerData({...buyerData, paymentMethod: e.target.getAttribute("payment")}) }
-   const changeBuyerInput = (e) => { useBuyerData({...buyerData, [e.target.name] : e.target.value}) }
+   const setPaymentMethod = (e) => { setBuyerData({...buyerData, paymentMethod: e.target.getAttribute("payment")}) }
+   const changeBuyerInput = (e) => { setBuyerData({...buyerData, [e.target.name] : e.target.value}) }
    const verifyPayment = () => {
       const packedData = {...buyerData}
       if(packedData.paymentMethod === undefined) { Swal.fire("Error!", "Tolong pilih metode pembayaran terlebih dahulu, yah ~", "error") }
