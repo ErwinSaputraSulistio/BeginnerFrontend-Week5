@@ -5,12 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-// SHOWTIMES & TICKETS (TICKITZ)
-const setStartTime = (e) => {
-   // localStorage.setItem("startTime", e.target.getAttribute("value")), 
-   localStorage.setItem("cinemaUrl", e.target.getAttribute("cinemaUrl")), 
-   localStorage.setItem("cinemaName", e.target.getAttribute("cinemaName"))
-}
 export function ShowtimesAndTicketsCard({ selectedCity }){
    const dispatch = useDispatch()
    const {allCinema} = useSelector(state => state.cinema)
@@ -18,6 +12,12 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
       axios.get("http://localhost:2000/v1/cinemas/all")
       .then((res) => { dispatch({type: "CINEMA_ALL", payload: res.data.outputData}) })
       .catch((err) => {alert(err.message)})
+   }
+   // SHOWTIMES & TICKETS (TICKITZ)
+   const setStartTime = (e) => {
+      localStorage.setItem("startTime", e.target.getAttribute("value")), 
+      localStorage.setItem("cinemaUrl", e.target.getAttribute("cinemaUrl")), 
+      localStorage.setItem("cinemaName", e.target.getAttribute("cinemaName"))
    }
    const[cinemaByLocation, setCinema] = useState([])
    const filterCinemaByLocation = () => {
