@@ -1,0 +1,35 @@
+/* DESKTOP */
+@media (min-width: 768px){
+   .orderHistoryCard {
+      background: white;
+      border-radius: 0.5vw;
+      margin-bottom: 1vw;
+      width: 100%;
+   }
+   .dateAndMovieText {
+      display: flex;
+      flex-direction: column;
+   }
+   .orderHistoryTop {border-bottom: 0.1vw solid #DEDEDE;}
+   .orderHistoryTop, .orderHistoryBottom {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 3%;
+      width: 100%;
+   }
+   .orderHistoryShowDate {color: #AAAAAA; font-size: 0.8vw;}
+   .orderHistoryMovieName {color: black; font-size: 1.5vw;}
+   .orderHistoryCinemaImg {height: 2vw; width: 6vw;}
+   .orderHistoryTicketStatus {border-radius: 0.5vw; color: white; font-size: 0.8vw; font-weight: 600; padding: 0.8vw 0; text-align: center; width: 25%;}
+   .ticketPending {background: #5F2EEA;}
+   .ticketActive {background: #00BA88;}
+   .ticketUsed {background: #6E7191;}
+   .ticketExpired {background: indianred;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+}

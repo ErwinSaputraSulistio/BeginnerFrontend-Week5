@@ -3,6 +3,7 @@ import axios from 'axios'
 import './style.css'
 import { Helmet } from 'react-helmet'
 import { Link } from'react-router-dom'
+import Swal from 'sweetalert2'
 
 export default class Register extends Component {
    constructor(props) {
@@ -13,9 +14,11 @@ export default class Register extends Component {
          newPassword: '',
          defaultNewJob: 'New Moviegoers',
          defaultNewProfileImage: 'https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png',
-         defaultUserRole: 'member'
+         defaultUserRole: 'member',
+         showPassword: false
       }
     }
+    passwordVisibility = () => {this.setState({showPassword: !this.state.showPassword})}
     handleInputChange = (e) => {this.setState({[e.target.name]: e.target.value})}
     handleSubmit = (e) => {
       e.preventDefault()
@@ -30,10 +33,20 @@ export default class Register extends Component {
       }
       axios.post(process.env.REACT_APP_USER, newData)
       .then((res) => {
-         alert(res.data.callResult)
-         window.location = "/login"
+         Swal.fire(
+            "Akun berhasil di buat!", 
+            "Silahkan cek inbox email kamu untuk verifikasi akun kamu!", 
+            "success")
+         .then(() => {
+            localStorage.clear()
+            localStorage.setItem("outputData", res.data.outputData)
+            localStorage.setItem("jwtToken", res.data.jwtSecretKey)
+            window.location = "/login"})
       })
-      .catch((err) => alert(err))
+      .catch((err) => {Swal.fire(
+         "Oops ?!", 
+         err.response.data.callResult, 
+         "error")})
    };
    render(){
       return(
@@ -57,12 +70,12 @@ export default class Register extends Component {
                      <form onSubmit={this.handleSubmit}>
                         <label className="labelInput mulishFont" for="email">Email</label>
                         <div className="borderInput">
-                           <input className="input" type="email" id="email" name="newEmail" placeholder="Write your email" onChange={this.handleInputChange} required/>
+                           <input className="input" type="email" id="email" maxLength="64" name="newEmail" placeholder="Write your email" onChange={this.handleInputChange} required/>
                         </div>
                         <label className="labelInput mulishFont" for="password">Password</label>
                         <div className="borderInput">
-                           <input className="input" type="password" id="password" name="newPassword" placeholder="Write your password" onChange={this.handleInputChange} required/>
-                           <img className="eyeLogo" src="https://user-images.githubusercontent.com/77045083/111035327-86454680-844c-11eb-8be5-8d01d3189c35.png" onclick="showPass()"/>
+                           <input className="input" type={this.state.showPassword ? "text" : "password"} id="password" minLength="8" maxLength="32" name="newPassword" placeholder="Write your password" onChange={this.handleInputChange} required/>
+                           <img className="eyeLogo" src="https://user-images.githubusercontent.com/77045083/111035327-86454680-844c-11eb-8be5-8d01d3189c35.png" onClick={this.passwordVisibility}/>
                         </div>
                         <input className="registerCheckBox" type="checkbox" required/><span className="agreeTerms mulishFont">I agree terms &amp; conditions</span>
                         <input className="hoverEffect mulishFont submitBtn" type="submit" value="Join for free now"/>

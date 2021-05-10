@@ -1,0 +1,28 @@
+.paymentPage {background: #F5F6F8; width: 100%;}
+.paymentPageTitle {font-weight: 600;}
+.insidePaymentPageWhite {background: white;}
+.color6B6B6B {color: #6B6B6B;}
+
+/* DESKTOP */
+@media(min-width: 768px){
+   .paymentPage {display: flex; flex-direction: row; justify-content: space-between; padding: 3vw 7vw;}
+   .paymentPageTitle {font-size: 1.1vw;}
+   .paymentPageInputLabel {color: #696F79; font-size: 0.8vw;}
+   .paymentPageInput {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; font-size: 1vw; margin-top: 0.5vw; margin-bottom: 1vw; padding: 0.75vw 1.5vw; width: 100%;}
+   .insidePaymentPageWhite {border-radius: 0.5vw; margin-top: 1vw; margin-bottom: 2vw; padding: 2vw;}
+   .insidePaymentPageWhiteAgain {border-bottom: 0.1vw solid #E6E6E6; display: flex; flex-direction: row; font-size: 1vw; justify-content: space-between; padding: 1vw 0; width: 100%;}
+   .leftPaymentPage {width: 64%}
+   .rightPaymentPage {width: 34%;}
+   .choosePaymentMethodRow {align-items: center; display: flex; flex-direction: row; justify-content: space-between; width: 100%;}
+   .paymentMethodBtn {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; height: 3.5vw; text-align: center; width: 11vw;}
+   .paymentMethodBtn:hover {cursor: pointer; opacity: 0.5;}
+   .paymentMethodImg {border-radius: 0.5vw; height: 3.3vw; width: 9.9vw;}
+   .payYourOrderZone {margin: 3vw 0; text-align: center; width: 100%;}
+   .payYourOrderBtn {background: #5F2EEA; border-radius: 0.5vw; padding: 1vw 5vw; color: white;}
+   .payYourOrderBtn:hover {color: white; opacity: 0.5;}
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+
+}

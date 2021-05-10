@@ -1,0 +1,36 @@
+.showtimesAndTicketsCard {
+   background: white;
+   display: flex;
+   flex-direction: column;
+}
+.cardFlexRow {
+   align-items: center;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.cardFlexColumn {width: 100%;}
+.topInfoCardBorder {border-bottom: 0.5px solid #DEDEDE;}
+.greyText {color: #6E7191;}
+.boldText {font-weight: 600;}
+.showtimesTimeText {color: #A0A3BD;}
+.showtimesTimeText:focus {color: #4E4B66;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .ticketsCardRow {display: flex; flex-direction: row;}
+   .showtimesAndTicketsCard{
+      border-radius: 0.5vw;
+      height: auto;
+      width: 24vw;
+   }
+   .eightPadding {padding: 8%;}
+   .eightPaddingSideOnly {padding: 0 8%;}
+   .timeFlexRow {font-size: 0.8vw; padding: 0 8%;}
+   .timeGap {margin: 8% 0;}
+   .priceTextCard {font-size: 1vw;}
+   .cinemaImage, .cinemaInformation {width: 50%;}
+   .cinemaName {font-size: 1.5vw;}
+   .cinemaStreet {font-size: 0.8vw;}
+   .ticketsCardRow {display: flex; justify-content: space-between; width: 100%;}
+}

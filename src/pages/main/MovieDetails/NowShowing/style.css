@@ -16,23 +16,30 @@
 .adminUpdateFilmBtn, .adminRemoveFilmBtn {color: white; font-weight: 600; letter-spacing: 0.75px;}
 .adminUpdateFilmBtn {background: #3CB371;}
 .adminRemoveFilmBtn {background: indianred;}
-
+.genreGroupBorder {text-align: center;}
+.genreBtnGroup {display: flex; flex-direction: row; align-items: center; justify-content: center;}
+.genreBtn {background: #5F2EEA; border: none; color: white; font-family: 'Mulish';}
+.genreBtn:hover {opacity: 0.5;}
+.borderTopGenre {border-top: 0.1vw solid #DEDEDE;}
 
 /* DESKTOP */
 @media (min-width: 768px){
+   .marginLeftGenre {margin-left: 1vw;}
+   .genreBtnGroup {margin-top: 3%;}
+   .genreGroupBorder {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; font-size: 1.1vw; width: 25vw;}
+   .genreBtn {border-radius: 0.5vw; font-size: 1.1vw; margin: 3% 3% 3% 0; padding: 0.5vw 0; width: 8vw;}
+   .paddingForGenreGroup {padding: 3%;}
+   .someMoviesFound {color: #A0A3BD; font-size: 0.8vw;}
    .nowShowingMovieDetails {
-      border-bottom: 0.1vw solid #DEDEDE;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       height: auto;
       margin: 0 8vw;
-      padding: 8vw 0 10vw 0;
+      padding: 5vw 0;
       width: auto;
    }
-   .movieDetailsMoreInfo {
-      margin-top: 3%;
-   }
+   .movieDetailsMoreInfo {margin-top: 3%;}
    .movieDetailsImgBorder {
       border: 0.1vw solid #DEDEDE;
       border-radius: 0.5vw;

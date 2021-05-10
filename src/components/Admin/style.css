@@ -17,6 +17,7 @@
     }
     .helloAdminText {font-size: 1.5vw; letter-spacing: 0.75px; margin: 10% 0; text-align: center;}
     .inputAdminMovies {
+       background: white;
        border: 0.1vw solid #DEDEDE;
        border-radius: 0.5vw;
        font-size: 0.8vw;

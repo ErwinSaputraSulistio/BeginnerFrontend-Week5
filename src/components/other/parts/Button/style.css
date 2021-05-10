@@ -1,0 +1,19 @@
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+.mulish {font-family: 'Mulish'; letter-spacing: 0.75px;}
+.purpleButtonComponent {background: #5F2EEA; color: white;}
+.purpleButtonComponent:hover {color: white;}
+.transparentButtonComponent {background: transparent; color: #5F2EEA;}
+.transparentButtonComponent:hover {color: #5F2EEA;}
+.purpleButtonComponent:hover, .transparentButtonComponent:hover {opacity: 0.5;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .purpleButtonComponent, .transparentButtonComponent {
+      border-radius: 0.5vw;
+      font-size: 0.8vw;
+      font-weight: 600;
+      padding: 0.7vw 2.1vw;
+   }
+}

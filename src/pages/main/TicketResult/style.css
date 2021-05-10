@@ -1,0 +1,42 @@
+.purpleOutsideTicketResult {background: #5F2EEA;}
+.greyOutsideTicketResult {align-items: center; background: #F5F6F8; display: flex; flex-direction: column; width: 100%;}
+.downloadAndPrint {display: flex; flex-direction: row;}
+.downloadBtn, .printBtn {align-items: center; display: flex; flex-direction: row;}
+.ticketResult {display: flex; flex-direction: row; justify-content: center; width: 100%;}
+.leftTicketResult, .rightTicketResult {display: flex; flex-direction: column;}
+.topLeftTicket, .topRightTicket {background: #5F2EEA; width: 100%;}
+.bottomLeftTicket, .bottomRightTicket {background: white; width: 100%;}
+.bottomLeftTicket {display: flex; flex-direction: column; justify-content: space-between;}
+.bottomLeftTicketRow, .bottomRightTicketRow {display: flex; flex-direction: row; justify-content: space-between; width: 100%;}
+.bottomLeftTicketColumn, .bottomRightTicketColumn {display: flex; flex-direction: column;}
+.bottomRightTicket {display: flex; flex-direction: row;}
+.widthThirty {width: 30%;}
+.widthFourty {width: 40%;}
+.widthFifty {width: 50%;}
+
+
+/* DESKTOP */
+@media(min-width: 768px){
+   .purpleOutsideTicketResult {padding: 4vw 12vw;}
+   .greyOutsideTicketResult {border-radius: 1vw; height: auto; padding: 0 5vw;}
+   .proofText {font-size: 1.5vw; margin: 3vw;}
+   .leftTicketResult {width: 70%;}
+   .rightTicketResult {width: 30%;}
+   .tickitzTicketResultLogo {width: 8.8vw;}
+   .topLeftTicket, .topRightTicket {padding: 1vw 3vw;}
+   .topLeftTicket {align-items: center; border-right: 0.2vw dashed #DEDEDE; border-radius: 1vw 0 0 0; display: flex; flex-direction: row; justify-content: space-between;}
+   .topRightTicket {border-radius: 0 1vw 0 0; text-align: center;}
+   .bottomTicketResult {height: 18vw;}
+   .bottomLeftTicket {border-right: 0.2vw dashed #DEDEDE; border-radius: 0 0 0 1vw; padding: 2vw 3vw;}
+   .ticketLittleTitle {color: grey; font-size: 0.8vw;}
+   .ticketTitleContent {font-size: 1vw; margin: 0.5vw 0;}
+   .bottomRightTicket {border-radius: 0 0 1vw 0;}
+   .insideBottomRightTicket {display: flex; flex-direction: column; justify-content: space-between; padding: 1vw; width: 80%;}
+   .downloadAndPrint {font-size: 1vw; justify-content: space-between; margin: 3vw; width: 33%;}
+   .downloadBtn, .printBtn {border: 0.1vw solid #434B66; border-radius: 0.3vw; padding: 0.5vw 2vw;}
+   .downloadBtn:hover, .printBtn:hover {cursor: pointer; opacity: 0.5;}
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+}

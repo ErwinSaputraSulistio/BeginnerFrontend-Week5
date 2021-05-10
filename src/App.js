@@ -5,28 +5,37 @@ import ResetPassword from './pages/auth/ResetPassword'
 import ProfilePage from './pages/auth/ProfilePage'
 import HomePage from './pages/main/HomePage'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import NowShowing from './pages/main/NowShowing'
-import UpcomingMovies from './pages/main/UpcomingMovies'
+import { Provider } from 'react-redux'
+import NowShowing from './pages/main/MovieDetails/NowShowing'
+import UpcomingMovies from './pages/main/MovieDetails/UpcomingMovies'
+import OrderPage from './pages/main/OrderPage'
+import PaymentPage from './pages/main/PaymentPage'
+import TicketResult from './pages/main/TicketResult'
 import AddOrUpdateMovies from './pages/admin/addOrUpdateMovies'
 import NotFound from './pages/NotFound'
-
+import store from './configs/redux/Store'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
-        <Route path="/reset-password" component={ResetPassword}/>
-        <Route path="/profile-page" component={ProfilePage}/>
-        <Route path="/home-page" component={HomePage}/>
-        <Route path="/now-showing/all" component={NowShowing}/>
-        <Route path="/now-showing/:id" component={NowShowing}/>
-        <Route path="/upcoming-movies/:id" component={UpcomingMovies}/>
-        <Route path="/admin/add-or-update-movies" component={AddOrUpdateMovies}/>
-        <Route component={NotFound}/>
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/reset-password" component={ResetPassword}/>
+          <Route path="/profile-page" component={ProfilePage}/>
+          <Route path="/home-page" component={HomePage}/>
+          <Route path="/now-showing/search" component={NowShowing}/>
+          <Route path="/now-showing/:id" component={NowShowing}/>
+          <Route path="/upcoming-movies/:id" component={UpcomingMovies}/>
+          <Route path="/order-page/:id" component={OrderPage}/>
+          <Route path="/payment-page/:id" component={PaymentPage}/>
+          <Route path="/ticket-result/:id" component={TicketResult}/>
+          <Route path="/admin/add-or-update-movies" component={AddOrUpdateMovies}/>
+          <Route component={HomePage}/>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

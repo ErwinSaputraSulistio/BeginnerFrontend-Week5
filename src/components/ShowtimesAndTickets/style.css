@@ -1,0 +1,47 @@
+.showtimesAndTickets{
+   align-items: center;
+   background: #F5F6F8;
+   display: flex;
+   flex-direction: column;
+}
+.calendarInput {background: transparent; border: none;}
+.calendarInput:focus {outline: none;}
+.locationToggler {color: #EFF0F6;}
+
+/* DESKTOP */
+@media (min-width: 768px){
+   .showtimesAndTickets{
+      height: 50vw;
+      margin-bottom: 3vw;
+      padding: 4% 8%;
+   }
+   .showtimesTicketsTextBig {font-size: 1.5vw;}
+   .twoShowtimesButtons {
+      display: flex;
+      flex-direction: row;
+      font-size: 1vw;
+      justify-content: center;
+      width: 100%;
+   }
+   .oneOfTheShowtimesButtons {
+      align-items: center;
+      background: #EFF0F6;
+      border-radius: 0.5vw;
+      margin: 2% 1% 4% 1%;
+      padding: 1% 2%;
+      width: 15vw;
+   }
+   .showtimesLogo {
+      height: 1vw; margin: 0 12% 0 7%; width: 1vw;
+   }
+   .locationDropdown {
+      background: #EFF0F6;
+      font-size: 1vw;
+   }
+   .locationLogo {height: 1vw; width: 1vw;}
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+}
