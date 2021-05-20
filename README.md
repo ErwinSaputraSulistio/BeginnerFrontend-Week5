@@ -35,7 +35,7 @@ Akhirnya selesai, kita berhasil memesan sebuah tiket dan ini adalah contoh hasil
 7.) Add / Update Movies (admin only) : https://ciwin-react-tickitz-arkademy.netlify.app/admin/add-or-update-movies  
 
 ## Tickitz - Backend Link :  
-https://github.com/ErwinSaputraSulistio/IntermediateBackend-Week6
+https://github.com/ErwinSaputraSulistio/Tickitz-BE
 
 
 
