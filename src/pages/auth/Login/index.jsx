@@ -54,9 +54,19 @@ export default function Login() {
             "error")
       })
    }
+   useEffect(() => {
+      if(localStorage.getItem("isLoggedIn") === "true") { alreadyLogin() }
+      else if(localStorage.getItem("verifyStatus") === "Success") {
+         Swal.fire("Selesai!", "Akun kamu berhasil di verifikasi, silahkan login!", "success")
+         .then(() => { localStorage.removeItem("verifyStatus") })
+      }
+      else if(localStorage.getItem("verifyStatus") === "Failed") {
+         Swal.fire("Error?!", "Gagal verifikasi akun, token aktivasi tidak valid!", "error")
+         .then(() => { localStorage.removeItem("verifyStatus") })
+      }
+   }, [])
    return(
       <div>
-         {localStorage.getItem("isLoggedIn") === "true" && alreadyLogin()}
          <Helmet>
             <title>Tickitz - Login</title>
          </Helmet>

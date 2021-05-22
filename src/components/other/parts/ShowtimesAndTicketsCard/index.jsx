@@ -26,6 +26,11 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
          setCinema(currentFilter)
       }
    }
+   const selectThisCinema = (name, img, time) => {
+      localStorage.setItem("cinemaName", name)
+      localStorage.setItem("cinemaUrl", img)
+      localStorage.setItem("startTime", time)
+   }
    useEffect(() => { getCinema() }, [])
    useEffect(() => { setCinema(allCinema) }, [allCinema])
    useEffect(() => { if(selectedCity !== "Location") { filterCinemaByLocation() } }, [selectedCity])
@@ -49,10 +54,10 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
                <div className="timeFlexRow mulish">
                   <div className="cardFlexColumn">
                      <div className="cardFlexRow timeGap">
-                        {firstFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item}>{item}</Link>) })}
+                        {firstFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" onClick={ () => { selectThisCinema(cinemaName, cinemaUrl, item) } } value={item}>{item}</Link>) })}
                      </div>
                      <div className="cardFlexRow timeGap">
-                        {lastFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" cinemaName={cinemaName} cinemaUrl={cinemaUrl} value={item}>{item}</Link>) })}
+                        {lastFourTimeCinema.map((item) => { return(<Link className="showtimesTimeText" onClick={ () => { selectThisCinema(cinemaName, cinemaUrl, item) } } value={item}>{item}</Link>) })}
                      </div>
                   </div>
                </div>

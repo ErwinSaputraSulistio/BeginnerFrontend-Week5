@@ -18,9 +18,10 @@ export default function PaymentPage(){
    const dispatch = useDispatch()
    const paramsId = useParams().id
    const {transactionId} = useSelector(state => state.transaction)
+   const [transactionData, setTransactionData] = useState({})
    const getTransactionById = () => {
       axios.get(process.env.REACT_APP_TRANSACTION + "number/" + paramsId)
-      .then((res) => { 
+      .then((res) => {
          dispatch({type: "TRANSACTION_ID", payload: res.data.outputData[0]})
          setBuyerData({buyerName: res.data.outputData[0].ticketBuyer, buyerEmail: res.data.outputData[0].buyerEmail, buyerPhoneNumber: res.data.outputData[0].phoneNumber})
       })
@@ -43,6 +44,9 @@ export default function PaymentPage(){
       }
    }
    useEffect(() => { getTransactionById() }, [])
+   useEffect(() => {
+      setTransactionData(transactionId)
+   }, [transactionId])
    return(
       <div className="showInAnimation">
          <Helmet>
@@ -50,28 +54,28 @@ export default function PaymentPage(){
          </Helmet>
          <Navbar/>
          <div className="mulish paymentPage">
-            <div className="leftPaymentPage">
+            <div className="leftPaymentPage order-2 order-lg-1">
                <p className="noMargin paymentPageTitle">Payment Info</p>
                <div className="insidePaymentPageWhite" style={{padding: "1vw 2vw"}}>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Date &amp; time</p>
-                     <p className="noMargin">{transactionId.showDate + " at " + transactionId.startTime}</p>
+                     <p className="noMargin">{transactionData.showDate + " at " + transactionData.startTime}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Movie title</p>
-                     <p className="noMargin">{transactionId.choosenMovie}</p>
+                     <p className="noMargin">{transactionData.choosenMovie}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Cinema name</p>
-                     <p className="noMargin">{transactionId.cinemaName}</p>
+                     <p className="noMargin">{transactionData.cinemaName}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Number of tickets</p>
-                     <p className="noMargin">{transactionId.howManyTickets + " pieces"}</p>
+                     <p className="noMargin">{transactionData.howManyTickets + " pieces"}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain" style={{border: "none"}}>
                      <p className="color6B6B6B noMargin">Total payment</p>
-                     <p className="noMargin">{"IDR " + transactionId.totalPayment}</p>
+                     <p className="noMargin">{"IDR " + transactionData.totalPayment}</p>
                   </div>
                </div>
                <p className="noMargin paymentPageTitle">Choose a payment method</p>
@@ -91,7 +95,7 @@ export default function PaymentPage(){
                </div>
                <div className="payYourOrderZone"><Link className="payYourOrderBtn" onClick={() => {verifyPayment()}}>Pay your order</Link></div>
             </div>
-            <div className="rightPaymentPage">
+            <div className="rightPaymentPage order-1 order-lg-2">
                <p className="noMargin paymentPageTitle">Personal Info</p>
                <div className="insidePaymentPageWhite">
                   <p className="noMargin paymentPageInputLabel">Full Name</p>

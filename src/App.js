@@ -2,6 +2,7 @@ import './App.css'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import ResetPassword from './pages/auth/ResetPassword'
+import Verification from './pages/auth/Verification'
 import ProfilePage from './pages/auth/ProfilePage'
 import HomePage from './pages/main/HomePage'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
@@ -12,7 +13,6 @@ import OrderPage from './pages/main/OrderPage'
 import PaymentPage from './pages/main/PaymentPage'
 import TicketResult from './pages/main/TicketResult'
 import AddOrUpdateMovies from './pages/admin/addOrUpdateMovies'
-import NotFound from './pages/NotFound'
 import store from './configs/redux/Store'
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/reset-password" component={ResetPassword}/>
+          <Route path="/verification/:id" component={Verification}/>
           <Route path="/profile-page" component={ProfilePage}/>
           <Route path="/home-page" component={HomePage}/>
           <Route path="/now-showing/search" component={NowShowing}/>

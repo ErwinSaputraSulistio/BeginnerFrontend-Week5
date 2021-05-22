@@ -17,7 +17,7 @@
 .showtimesTimeText:focus {color: #4E4B66;}
 
 /* DESKTOP */
-@media (min-width: 768px){
+@media(min-width: 768px){
    .ticketsCardRow {display: flex; flex-direction: row;}
    .showtimesAndTicketsCard{
       border-radius: 0.5vw;
@@ -32,5 +32,24 @@
    .cinemaImage, .cinemaInformation {width: 50%;}
    .cinemaName {font-size: 1.5vw;}
    .cinemaStreet {font-size: 0.8vw;}
+   .ticketsCardRow {display: flex; justify-content: space-between; width: 100%;}
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+   .ticketsCardRow {display: flex; flex-direction: column; margin: 24px 0;}
+   .showtimesAndTicketsCard{
+      border-radius: 0.5vw;
+      height: auto;
+      margin: 12px 0;
+   }
+   .eightPadding {padding: 8%;}
+   .eightPaddingSideOnly {padding: 0 8%;}
+   .timeFlexRow {font-size: 4vw; padding: 0 8%;}
+   .timeGap {margin: 8% 0;}
+   .priceTextCard {font-size: 4vw;}
+   .cinemaImage, .cinemaInformation {width: 50%;}
+   .cinemaName {font-size: 5.5vw;}
+   .cinemaStreet {font-size: 2.5vw;}
    .ticketsCardRow {display: flex; justify-content: space-between; width: 100%;}
 }

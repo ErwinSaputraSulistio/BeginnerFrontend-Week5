@@ -105,6 +105,6 @@
    .thisIsLineBreaksMovieDetails {display: none;}
    .synopsisText {font-size: 16px;}
    .afterSynopsisText {color: #4E4B66; font-size: 13px; letter-spacing: 0.75px;}
-   .adminUpdateFilmBtn, .adminRemoveFilmBtn {border-radius: 12px; font-weight: 600; letter-spacing: 0.75px; padding: 12px;}
+   .adminUpdateFilmBtn, .adminRemoveFilmBtn {border-radius: 12px; font-weight: 600; letter-spacing: 0.75px; margin: 6px 0; padding: 12px;}
    .adminMovieBtnArea {flex-direction: column;}
 }

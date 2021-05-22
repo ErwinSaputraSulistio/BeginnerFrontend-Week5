@@ -7,15 +7,27 @@ import Swal from 'sweetalert2'
 export default class OrderHistory extends Component {
    constructor(props) {
       super(props)
-      this.state = { transactions: [] }
+      this.state = { 
+         transactions: [],
+         howMuchPage: null,
+         currentPage: 1,
+         start: 0,
+         end: 2
+      }
    }
    // GET TRANSACTION BASED ON USER ID
    componentDidMount(){
       axios.get(process.env.REACT_APP_TRANSACTION + "user/" + localStorage.getItem("userId"))
       .then((res) => {
-         console.log(res.data.outputData[0].transactionId)
-         this.setState({ transactions: [...res.data.outputData] })})
-      .catch((err) => {console.log(err.message)})
+         let pageNum = []
+         for(let i = 1; i <= Math.ceil(res.data.outputData.length/2); i++) { pageNum.push(i) }
+         this.setState({ 
+            transactions: [...res.data.outputData],
+            howMuchPage: res.data.outputData.length,
+            pageNum
+         })
+      })
+      .catch((err) => { console.log(err.message) })
    }
    // DELETE TRANSACTION
    deleteTransaction = (item) => {
@@ -54,13 +66,21 @@ export default class OrderHistory extends Component {
          })
       }
    }
+   // PAGINATION
+   changePagination = (item) => {
+      this.setState({
+         currentPage: item,
+         start: (2 * item) - 2,
+         end: 2 * item
+      })
+   }
    // SHOW RESULT
    render(){
       return(
          <div>
             {this.state.transactions.length !== 0 ?
             <div>
-               {this.state.transactions.map((item) => 
+               {this.state.transactions.slice(this.state.start, this.state.end).map((item) => 
                   <div className="mulish orderHistoryCard">
                      <div className="orderHistoryTop">
                         <div className="dateAndMovieText">
@@ -96,9 +116,22 @@ export default class OrderHistory extends Component {
                      </div>
                   </div>
                )}
+               <div className="orderPaginationAreaZone">
+                  {this.state.pageNum.map((item) => {
+                     return(
+                        <div 
+                           className="hoverThis paginationButton" 
+                           onClick={ () => { this.changePagination(item) } } 
+                           style={item === this.state.currentPage ? {background: "#5F2EEA", color: "white", fontWeight: "bold"} : null}
+                        >
+                           {item}
+                        </div>
+                     )
+                  })}
+               </div>
             </div>
             :
-            <p>No Film</p>
+            <p>No order yet!</p>
             }
          </div>
       )

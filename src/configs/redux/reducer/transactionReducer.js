@@ -1,5 +1,5 @@
 const transactionState = {
-    transactionID: []
+    transactionId: []
  }
 
 const transactionReducer = (state = transactionState, action) => {

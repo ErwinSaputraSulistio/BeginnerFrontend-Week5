@@ -122,7 +122,7 @@ export default class OrderPage extends Component{
                <Link className="mulish changeOrderedMovie" onClick={() => {window.location = "/home-page"}}>Change Movie</Link>
             </div>
             <div className="orderPageRow">
-               <div className="chooseYourSeat mulish">
+               <div className="chooseYourSeat mulish order-2 order-lg-1">
                   <p>Choose Your Seat</p>
                   <div className="insideOrderPage insideChooseYourSeat">
                      <div className="chooseSeatColumn">
@@ -178,12 +178,12 @@ export default class OrderPage extends Component{
                   </div>
                   <button className="checkoutNowBtn hoverThis" onClick={this.checkoutNow}>Checkout now</button>
                </div>
-               <div className="orderInfo mulish">
+               <div className="orderInfo mulish order-1 order-lg-2">
                   <p>Order Info</p>
                   <div className="insideOrderPage">
                      <div className="insideOrderInfoTop">
-                        <div className="insideOrderInfoText"><img className="orderPageCinemaLogo" src={localStorage.getItem("cinemaUrl")}/></div>
-                        <p style={{textAlign: 'center', fontSize: '2vw', margin: '1vw'}}>{localStorage.getItem("cinemaName")}</p>
+                        <div className="insideOrderInfoText specialCaseForImgOrder"><img className="orderPageCinemaLogo" src={localStorage.getItem("cinemaUrl")}/></div>
+                        <p className="insideOrderInfoCinemaName">{localStorage.getItem("cinemaName")}</p>
                         <div className="insideOrderInfoText">
                            <p className="noMargin sixBcolor">Movie selected</p>
                            <p className="noMargin">{this.state.orderedMovie.movieName}</p>

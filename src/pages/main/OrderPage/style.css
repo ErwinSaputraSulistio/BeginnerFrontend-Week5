@@ -44,9 +44,35 @@
    .insideOrderInfoTop {border-bottom: 0.1vw solid #E6E6E6;}
    .insideOrderInfoTop, .insideOrderInfoBottom {padding: 2.5% 5%;}
    .insideOrderInfoText {display: flex; flex-direction: row; font-size: 0.8vw; font-weight: 400; justify-content: space-between; margin: 3% 0; width: 100%;}
+   .insideOrderInfoCinemaName {text-align: center; font-size: 2vw; margin: 1vw;}
 }
 
 /* MOBILE */
 @media (max-width: 768px){
-
+   .titleAndChangeMovie {border-radius: 0 0 5vw 5vw; padding: 4.4vw 7.7vw; position: fixed;}
+   .orderMovieTitle {font-size: 4vw;}
+   .changeOrderedMovie {border-radius: 2vw; font-size: 2.5vw; font-weight: 600; padding: 1% 2%; text-align: center;}
+   .orderPageRow {background: #F5F6F8; display: flex; flex-direction: column; justify-content: space-between; padding: 30% 11% 5% 7%;}
+   .chooseYourSeat, .orderInfo {display: flex; flex-direction: column; font-size: 4vw; font-weight: 600; text-align: center;}
+   .chooseYourSeat {margin-top: 18px;}
+   .chooseSeatColumn {width: 100%;}
+   .chooseSeatRow {align-items: center; display: flex; flex-direction: row; justify-content: center; width: 100%;}
+   .gapBetweenChooseSeat {width: 11vw;}
+   .seatAlphabetPadding {padding: 0.5vw; width: 4vw;}
+   .chooseSeatBtn {background: #D6D8E7; border-radius: 1vw; height: 3.3vw; margin: 0.5vw; width: 3.3vw;}
+   .loveNest {background: #F589D7; width: 7.5vw;}
+   .seatNumericInfo {height: 3.3vw; margin: 0 0.5vw; text-align: center; width: 3.3vw;}
+   .seatAlphabetPadding, .seatNumericInfo {font-size: 2vw; font-weight: 400;}
+   .giveGapToNumericAndSeat {margin: 1vw 0;}
+   .specialCaseForImgOrder {margin: 5.5vw 0 !important;}
+   .orderPageCinemaLogo {height: 11vw; margin: auto; width: 33vw;}
+   .insideChooseYourSeat {display: flex; flex-direction: row; justify-content: space-between; padding: 5vw; width: 100%;}
+   .chooseYourSeatDummy {width: 100%;}
+   .checkoutNowBtn {border-radius: 1.5vw; margin: auto; margin-top: 5%; margin-bottom: 10%; padding: 3.3vw; width: 100%;}
+   .insideOrderPage {border-radius: 1vw;}
+   .insideOrderPage:hover {box-shadow: 0px 8px 24px rgba(17, 17, 17, 0.08);}
+   .insideOrderInfoTop {border-bottom: 0.1vw solid #E6E6E6;}
+   .insideOrderInfoTop, .insideOrderInfoBottom {padding: 2.5% 5%;}
+   .insideOrderInfoText {display: flex; flex-direction: row; font-size: 2.5vw; font-weight: 400; justify-content: space-between; margin: 3% 0; width: 100%;}
+   .insideOrderInfoCinemaName {text-align: center; font-size: 5.5vw; margin: 1vw; margin-bottom: 5.5vw;}
 }

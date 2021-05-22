@@ -15,6 +15,7 @@ input[type=number] {
 }
 .bottomLeftProfile {width: 100%;}
 .profileInfoTop{
+   align-items: center;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
@@ -50,6 +51,7 @@ input[type=number] {
    align-items: center;
    display: flex;
    flex-direction: column;
+   margin-bottom: 7.7vw;
    width: 100%;
 }
 .onSwitch {background: #3CB371; color: white; border: none;}
@@ -89,7 +91,7 @@ input[type=number] {
       padding-bottom: 6%;
    }
    .accountSettingBottom {margin-top: 3%;}
-   .accountSettingTextTitle {border-bottom: 0.1vw solid #DEDEDE; margin-bottom: 1.5%; padding: 2% 0;}
+   .accountSettingTextTitle {border-bottom: 0.1vw solid #DEDEDE; margin-bottom: 1.5%; padding-bottom: 2%;}
    .accountSettingRow {display: flex; flex-direction: row; justify-content: space-between;}
    .accountSettingInputGap {width: 48%;}
    .accountSettingInputLabel {color: #4E4B66; font-size: 0.8vw; margin-top: 1.5vw;}
@@ -114,7 +116,7 @@ input[type=number] {
    .profileTitle {font-size: 0.9vw;}
    .bottomLeftProfile {padding: 2vw;}
    .loyaltyPointsText {font-size: 0.9vw;}
-   .moviegoersPointCard {margin: 1vw 0 3vw 0;}
+   .moviegoersPointCard {margin: 1vw 0;}
    .userUpdateZone {height: 26.5vw; margin-bottom: 5%; padding: 3%; width: 48%;}
    .updateForm {margin: 10% 0;}
    .updateLabel {font-size: 1vw;}
@@ -140,36 +142,71 @@ input[type=number] {
 
 /* MOBILE */
 @media (max-width: 768px){
+   .leftSideProfile, .userUpdateZone, .userNotificationZone, .userDeleteZone{border-radius: 1vw;}
    .profilePage {
       background: #F5F6F8;
       display: flex; 
       flex-direction: column;
       justify-content: space-between;
-      padding: 36px 24px;
+      padding: 3% 7% 3% 8%;
       width: 100%;
    }
-   .leftSideProfile, .userUpdateZone, .userDeleteZone{border-radius: 12px;}
-   .leftSideProfile, .rightSideProfile {margin: 12px 0;}
-   .leftSideProfile {height: auto;}
-   .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 36px;}
-   .tripleDots {height: 15px; width: 15px;}
-   .profilePicture {height: 136px; margin: 24px 0; width: 136px;}
-   .profileName {font-size: 20px; font-weight: 600; letter-spacing: 0.75px;}
-   .profileTitle {font-size: 14px; letter-spacing: 0.75px;}
-   .bottomLeftProfile {padding: 36px;}
-   .loyaltyPointsText {font-size: 16px;}
-   .moviegoersPointCard {margin: 8px 0 40px 0;}
-   .userUpdateZone {height: auto; margin-bottom: 24px;}
-   .updateLabel {font-size: 14px;}
-   .updateBtn {margin-top: 60px;}
-   .marginTopUserJobs {margin-top: 24px;}
-   .marginBottomUserJobs {margin-bottom: 24px;}
-   .updateYourAccountText, .eraseYourAccountText {font-size: 20px; margin-top: 24px;}
-   .updateForm, .deleteForm {display: flex; flex-direction: column; justify-content: space-between; padding: 36px; width: 100%;}
-   .updateInputBorder, .eraseInputBorder {border: 1px solid #DEDEDE; border-radius: 5px; height: 48px; padding: 6px 18px;}
-   .updateBtn, .deleteBtn {border-radius: 5px; font-size: 16px; height: 48px; width: 100%;}
-   .userDeleteZone {height: auto; margin-bottom: 12px;}
-   .thisActionCantUndo {color: indianred; font-size: 12px;}
-   .eraseInput {font-size: 16px; height: 36px; width: 100%;}
-   .deleteBtn {margin-top: 12px;}
+   .leftSideProfile {height: auto; margin: 24px 0;}
+   .accountSettingTop, .accountSettingBottom {
+      background: white; 
+      border-radius: 0.5vw; 
+      display: flex; 
+      flex-direction: column; 
+      font-size: 1vw; 
+      letter-spacing: 0.75px; 
+      padding: 5.5vw;
+      padding-bottom: 8.8vw;
+   }
+   .accountSettingBottom {margin-top: 3%;}
+   .accountSettingTextTitle {border-bottom: 0.1vw solid #DEDEDE; font-size: 4vw; margin-bottom: 1.5%; text-align: center; padding-bottom: 3vw;}
+   .accountSettingRow {display: flex; flex-direction: column; justify-content: space-between;}
+   .accountSettingInputLabel {color: #4E4B66; font-size: 2.5vw; margin: 0; padding: 3vw 0 1.5vw 0;}
+   .accountSettingInputBorder {border: 0.1vw solid #DEDEDE; border-radius: 1.5vw; padding: 1.5vw 3vw; width: 100%;}
+   .accountSettingInput {font-size: 4vw; width: 100%;}
+   .rightSideProfile {display: flex; flex-direction: column;}
+   .rightSideProfileTop {background: white; border-radius: 1vw; display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 2vw; width: 100%;}
+   .rightSideProfileBottom {display: flex; flex-direction: row; justify-content: space-between; width: 100%;}
+   .topLeftProfile {border-bottom: 0.1vw solid #DEDEDE; padding: 5.5vw;}
+   .profilePageButtonSelection {color: #AAAAAA; font-size: 2.5vw; padding: 2.5vw 0; margin: 0 2.5vw;}
+   .profilePageButtonSelectionActive {border-bottom: 0.2vw solid #5F2EEA; color: black;}
+   .infoTextInsideProfile {color: #4E4B66; font-size: 4vw; font-weight: 600; letter-spacing: 2px; margin: 0;}
+   .tripleDots {height: 5.5vw; width: 5.5vw;}
+   .profilePicture {display: flex; flex-direction: row; height: 33vw; margin: 24px 0; width: 33vw;}
+   .profileImage {border-radius: 50%; height: 33vw; position: absolute; width: 33vw;}
+   .changePictureText {
+      border-radius: 0.5vw; 
+      font-size: 1vw; 
+      margin-top: 45%;
+      width: 10vw;}
+   .profileName {font-size: 5.5vw; font-weight: 600; letter-spacing: 0.75px; margin-top: 1.5vw !important}
+   .profileTitle {font-size: 4vw;}
+   .bottomLeftProfile {padding: 5.5vw;}
+   .loyaltyPointsText {font-size: 5.5vw;}
+   .moviegoersPointCard {margin: 1vw 0 3vw 0;}
+   .userUpdateZone {height: 26.5vw; margin-bottom: 5%; padding: 3%; width: 48%;}
+   .updateForm {margin: 10% 0;}
+   .updateLabel {font-size: 1vw;}
+   .updateInputBorder {border: 0.1vw solid #DEDEDE; border-radius: 0.5vw; padding: 3% 5%; width: 100%;}
+   .updateInput {font-size: 0.8vw; width: 100%;}
+   .marginTopUserJobs {margin-top: 5%;}
+   .marginBottomUserJobs {margin-bottom: 5%;}
+   .updateBtn, .deleteBtn {border-radius: 0.5vw; font-size: 4vw; height: 3vw; width: 100%;}
+   .updateBtn {margin: 10% 0%;}
+   .updateYourAccountText, .notificationText, .eraseYourAccountText {font-size: 1.5vw;}
+   .userNotificationZone {height: auto; margin-bottom: 2vw; padding: 1.5vw; width: 100%;}
+   .notificationText {display: flex; justify-content: space-evenly; width: 100%;}
+   .onSwitch, .offSwitch {border-radius: 0.5vw; font-size: 1vw; padding: 0 2.5vw;}
+   .userDeleteZone {padding: 5.5vw; width: 100%;}
+   .eraseYourAccountText {font-size: 4vw;}
+   .thisActionCantUndo {color: indianred; font-size: 2.5vw; margin-bottom: 5%;}
+   .deleteForm {align-items: center; display: flex; flex-direction: column; width: 100%;}
+   .eraseInputBorder {border: 0.1vw solid #DEDEDE; border-radius: 1.5vw; margin-bottom: 3%; width: 100%;}
+   .eraseInput {align-items: center; border-radius: 1.5vw; display: flex; flex-direction: row; height: 2vw; font-size: 2.5vw; padding: 5.5vw; width: 100%;}
+   .updateChangesBtn {border-radius: 1.5vw; font-size: 4vw; margin: 7.7vw 0; padding: 2.5vw; width: 100%;}
+   .deleteBtn {border-radius: 1.5vw; height: 11vw;}
 }

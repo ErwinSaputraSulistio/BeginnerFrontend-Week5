@@ -33,7 +33,7 @@ export default function TicketResult(){
                   <div className="leftTicketResult">
                      <div className="topTicketResult topLeftTicket">
                         <img className="tickitzTicketResultLogo" src="https://user-images.githubusercontent.com/77045083/113519381-fd867a00-95b5-11eb-9065-5d3d45c1c851.png"/>
-                        <p className="noMargin" style={{color: "white", fontSize: "1vw"}}>Admit One</p>
+                        <p className="noMargin admitOneTicket">Admit One</p>
                      </div>
                      <div className="bottomTicketResult bottomLeftTicket">
                         <div className="bottomLeftTicketRow">
@@ -111,13 +111,13 @@ export default function TicketResult(){
                               </div>
                            </div>
                         </div>
-                        <img style={{height: "88%", marginTop: "0.5vw"}} src="https://user-images.githubusercontent.com/77045083/113520413-1e060280-95bd-11eb-9f31-b6f8f0d2f1ae.png"/>
+                        <img className="barcodeDummy" src="https://user-images.githubusercontent.com/77045083/113520413-1e060280-95bd-11eb-9f31-b6f8f0d2f1ae.png"/>
                      </div>
                   </div>
                </div>
                <div className="downloadAndPrint">
-                  <div className="downloadBtn"><img style={{width: "1.5vw", marginRight: "1vw"}} src="https://user-images.githubusercontent.com/77045083/113519145-a207bc80-95b4-11eb-919b-5ee2642f1fa6.png"/>Download</div>
-                  <div className="printBtn"><img style={{width: "1.5vw", marginRight: "1vw"}} src="https://user-images.githubusercontent.com/77045083/113519142-a0d68f80-95b4-11eb-8d00-2ce8f31c2e60.png"/>Print</div>
+                  <div className="downloadBtn"><img className="downloadAndPrintBtnLogo" src="https://user-images.githubusercontent.com/77045083/113519145-a207bc80-95b4-11eb-919b-5ee2642f1fa6.png"/>Download</div>
+                  <div className="printBtn"><img className="downloadAndPrintBtnLogo" src="https://user-images.githubusercontent.com/77045083/113519142-a0d68f80-95b4-11eb-8d00-2ce8f31c2e60.png"/>Print</div>
                </div>
             </div>
          </div>
