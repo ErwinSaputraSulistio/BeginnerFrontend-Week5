@@ -15,7 +15,7 @@
     git clone https://github.com/ErwinSaputraSulistio/Tickitz-FE
     cd Tickitz-FE
     npm start
-Backend (GitHub Repository) : https://github.com/ErwinSaputraSulistio/Telegram-BE  
+Backend (GitHub Repository) : https://github.com/ErwinSaputraSulistio/Tickitz-BE  
 
 ### Deploy - Netlify Links :  
 
