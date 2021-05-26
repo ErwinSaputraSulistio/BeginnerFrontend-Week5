@@ -41,7 +41,7 @@ export default function Login() {
             localStorage.setItem("userId", userid)
             localStorage.setItem("userName", realname)
             localStorage.setItem("userRole", userrole)
-            localStorage.setItem("jwtToken", res.data.jwtSecretKey)
+            localStorage.setItem("jwtToken", res.data.outputData[1])
             Swal.fire(
                "Login berhasil!", 
                "Selamat datang, " + userrole + " " + realname + "!", 
