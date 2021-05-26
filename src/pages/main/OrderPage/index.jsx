@@ -125,7 +125,7 @@ export default class OrderPage extends Component{
                data[i].start_time === (localStorage.getItem("startTime") + ":00") 
             ) { 
                this.setState({ alreadyBooked: true }) 
-               this.setState({ existSeat: [...this.state.existSeat, data[i].seat_position.split(", ")] }) 
+               this.setState({ existSeat: this.state.existSeat.concat(data[i].seat_position.split(", ")) }) 
             }
          }
       })
