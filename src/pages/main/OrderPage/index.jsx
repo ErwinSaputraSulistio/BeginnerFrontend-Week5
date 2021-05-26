@@ -14,7 +14,9 @@ export default class OrderPage extends Component{
          orderedMovie: [],
          orderedSeat: [],
          seatAlphabet: ["A","B","C","D","E","F","G"],
-         seatNumber: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+         seatNumber: [1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+         alreadyBooked: false,
+         existSeat: []
       }
    }
    componentDidMount(){
@@ -111,6 +113,24 @@ export default class OrderPage extends Component{
       }
    }
    render(){
+      console.log(this.state.orderedSeat)
+      // CHECK IF SEAT ALREADY BOOKED
+      axios.get(process.env.REACT_APP_TRANSACTION_NOSLASH + "?page=1&limit=999")
+      .then((res) => { 
+         const data = res.data.outputData
+         for(let i = 0; i < data.length; i++) {
+            if(this.state.alreadyBooked === true) { break; }
+            else{
+               if(
+                  data[i].cinema_name === localStorage.getItem("cinemaName") &&
+                  data[i].ticket_id === this.state.orderedMovie.ticket_id && 
+                  data[i].choosen_movie === this.state.orderedMovie.movie_name && 
+                  data[i].start_time === (localStorage.getItem("startTime") + ":00") 
+               ) { this.setState({alreadyBooked: true, existSeat: data[i].seat_position.split(", ")}) }
+            }     
+         }
+      })
+      .catch((err) => { console.log(err.response) })
       return(
          <div className="orderPage showInAnimation">
             <Helmet>
@@ -134,27 +154,72 @@ export default class OrderPage extends Component{
                                  {item === "F" ? 
                                     this.state.seatNumber.map((item) => { 
                                        if(item !== 14) {
-                                          if(item === 10) {return <Link class="loveNest noLineHeight chooseSeatBtn" onClick={(e) => {this.checkSeat(e, "Love Nest")}}/>}
+                                          if(item === 10) {
+                                             if(this.state.existSeat.includes(alphabet + item) === true) {
+                                                return <Link class="loveNest noLineHeight chooseSeatBtn bookedSeatBtn"/> 
+                                             }
+                                             else {
+                                                return <Link class="loveNest noLineHeight chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, "Love Nest")}}/> 
+                                             }
+                                          }
                                           else {
                                              if(item === 7) {
-                                                return <div>
-                                                         <Link className="chooseSeatRow chooseSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                                if(this.state.existSeat.includes(alphabet + item) === true) {
+                                                   return(
+                                                      <div>
+                                                         <Link className="chooseSeatRow chooseSeatBtn bookedSeatBtn"/>
                                                          <div className="gapBetweenChooseSeat"/>
                                                       </div>
+                                                   )
                                                 }
-                                             else {return <Link class="noLineHeight chooseSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>}
+                                                else {
+                                                   return(
+                                                      <div>
+                                                         <Link className="chooseSeatRow chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                                         <div className="gapBetweenChooseSeat"/>
+                                                      </div>
+                                                   )
+                                                }
+                                             }
+                                             else {
+                                                if(this.state.existSeat.includes(alphabet + item) === true) {
+                                                   return <Link class="noLineHeight chooseSeatBtn bookedSeatBtn"/>
+                                                }
+                                                else {
+                                                   return <Link class="noLineHeight chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                                }
+                                             }
                                           }
                                        }
                                     })
                                     :
                                     this.state.seatNumber.map((item) => { 
                                        if(item === 7) {
-                                          return <div>
-                                                   <Link className="chooseSeatRow chooseSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                          if(this.state.existSeat.includes(alphabet + item) === true) {
+                                             return(
+                                                <div>
+                                                   <Link className="chooseSeatRow chooseSeatBtn bookedSeatBtn"/>
                                                    <div className="gapBetweenChooseSeat"/>
                                                 </div>
+                                             )
+                                          }
+                                          else {
+                                             return(
+                                                <div>
+                                                   <Link className="chooseSeatRow chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                                   <div className="gapBetweenChooseSeat"/>
+                                                </div>
+                                             )
+                                          }
                                        }
-                                       else {return <Link class="noLineHeight chooseSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>}
+                                       else {
+                                          if(this.state.existSeat.includes(alphabet + item) === true) {
+                                             return <Link class="noLineHeight chooseSeatBtn bookedSeatBtn"/>
+                                          }
+                                          else {
+                                             return <Link class="noLineHeight chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, alphabet + item)}}/>
+                                          }
+                                       }
                                        
                                     })
                                  }

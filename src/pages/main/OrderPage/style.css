@@ -13,7 +13,8 @@
 .sixBcolor {color: #6B6B6B;}
 .checkoutNowBtn {background: #5F2EEA; border: none; color: white;}
 .noLineHeight {line-height: 1;}
-.chooseSeatBtn:hover {opacity: 0.5;}
+.activeSeatBtn:hover {opacity: 0.5;}
+.bookedSeatBtn { background: grey !important; pointer-events: none; }
 .selectedSeatActive { background: #5F2EEA !important; }
 
 /* DESKTOP */
