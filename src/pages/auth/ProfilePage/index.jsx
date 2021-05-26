@@ -28,12 +28,25 @@ export default class ProfilePage extends Component {
    componentDidMount(){
       axios.get(process.env.REACT_APP_USER + localStorage.getItem("userId"))
       .then((res) => {
-         this.setState({
-            inputData: res.data.outputData[0], 
-            updateFirstName: res.data.outputData[0].realName, 
-            updateEmail: res.data.outputData[0].userEmail, 
-            updateTitle: res.data.outputData[0].userJobs})
-         })
+         const splitName = res.data.outputData[0].realname.split(" ")
+         if(splitName.length === 2) {
+            this.setState({
+               inputData: res.data.outputData[0], 
+               updateFirstName: splitName[0], 
+               updateLastName: splitName[1], 
+               updateEmail: res.data.outputData[0].useremail, 
+               updateTitle: res.data.outputData[0].userjobs
+            })
+         }
+         else {
+            this.setState({
+               inputData: res.data.outputData[0], 
+               updateFirstName: res.data.outputData[0].realname, 
+               updateEmail: res.data.outputData[0].useremail, 
+               updateTitle: res.data.outputData[0].userjobs
+            })
+         }
+      })
       .catch((err) => {alert(err.message)})
    }
    // SHOW/HIDE PASSWORD
@@ -136,16 +149,11 @@ export default class ProfilePage extends Component {
       e.preventDefault()
       if(this.state.updatePassword !== this.state.confirmPassword) { Swal.fire("Gagal!", "Password baru dan konfirmasi password berbeda!", "error") }
       else{
-         const { profileImages, userName, userRole } = this.state.inputData
-         const { updateFirstName, updateLastName, updateEmail, updateTitle, updatePassword } = this.state
+         const { updateFirstName, updateLastName, updateTitle, updatePassword } = this.state
          const updatedData = {
             realName: updateFirstName + " " + updateLastName,
             userJobs: updateTitle,
-            profileImages,
-            userName,
-            userEmail: updateEmail,
-            userPassword: updatePassword,
-            userRole
+            userPassword: updatePassword
          }
          axios.put(process.env.REACT_APP_USER + localStorage.getItem("userId"), updatedData, {
             headers: { authorization: 'Bearer ' + localStorage.getItem("jwtToken") }
@@ -155,7 +163,7 @@ export default class ProfilePage extends Component {
                "Selesai!", 
                "Berhasil memperbarui data akun dari " + this.state.updateFirstName + " " + this.state.updateLastName + ", refresh page untuk melihat perubahan!", 
                "success")
-            .then(() => {window.location = "/profile-page/" + this.state.inputData.userId})
+            .then(() => {window.location = "/profile-page/" + this.state.inputData.userid})
          })
          .catch((err) => {
             Swal.fire(
@@ -216,7 +224,7 @@ export default class ProfilePage extends Component {
          .then(() => {
             Swal.fire(
                "Selesai!", 
-               "Berhasil menghapus akun " + this.state.inputData.realName + ", mengarahkan kembali ke halaman login!", 
+               "Berhasil menghapus akun " + this.state.inputData.realname + ", mengarahkan kembali ke halaman login!", 
                "success")
             .then(() => {
                localStorage.clear()
@@ -253,12 +261,12 @@ export default class ProfilePage extends Component {
                         </div>
                         <div className="profilePicture">
                            <Link className="changePictureBtn" onClick={this.changeAvatar}>
-                              <img className="profileImage" src={this.state.inputData.profileImages}/>
+                              <img className="profileImage" src={this.state.inputData.profileimages}/>
                               <p className="mulishFont changePictureText">Change Picture</p>
                            </Link>
                         </div>
-                        <p className="noMargin profileName textSet">{this.state.inputData.realName}</p>
-                        <p className="profileTitle textSet">{this.state.inputData.userJobs}</p>
+                        <p className="noMargin profileName textSet">{this.state.inputData.realname}</p>
+                        <p className="profileTitle textSet">{this.state.inputData.userjobs}</p>
                      </div>
                      <div className="bottomLeftProfile">
                         <p className="mulishFont loyaltyPointsText">Loyalty Points</p>
@@ -318,9 +326,9 @@ export default class ProfilePage extends Component {
                               </div>
                               <div className="accountSettingRow">
                                  <div className="accountSettingInputGap">
-                                    <p className="accountSettingInputLabel">E-mail</p>
+                                    <p className="accountSettingInputLabel">E-mail (can't be changed)</p>
                                     <div className="accountSettingInputBorder">
-                                       <input className="accountSettingInput" type="email" placeholder="Your e-mail address" name="updateEmail" maxLength="64" value={this.state.updateEmail} onChange={this.updateChangeHandler} required/>
+                                       <input className="accountSettingInput" type="email" placeholder="Your e-mail address" name="updateEmail" maxLength="64" value={this.state.updateEmail} required/>
                                     </div>
                                     </div>
                                  <div className="accountSettingInputGap">

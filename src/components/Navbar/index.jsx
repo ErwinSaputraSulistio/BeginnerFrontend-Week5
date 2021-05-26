@@ -15,7 +15,7 @@ export default function Navbar(){
       .then((res) => { setUserData(res.data.outputData[0]) })
       .catch((err) => { alert(err.message) })
    }, [])
-   const {profileImages, realName, userJobs, userRole} = userData
+   const {profileimages, realname, userjobs, userrole} = userData
 
    // QUERY - SEARCH
    const querySearch = (e) => {
@@ -46,13 +46,20 @@ export default function Navbar(){
    const logoutFunction = () => {
       Swal.fire(
          "Logout berhasil!", 
-         "Sampai jumpa lagi " + userRole + " " + realName + "!", 
+         "Sampai jumpa lagi " + userrole + " " + realname + "!", 
          "success")
       .then(() => {
          localStorage.clear()
          window.location = "/login"})
    }
-
+   // COMING SOON
+   const comingSoon = () => {
+      Swal.fire(
+         "- Coming soon -",
+         "(Still in development)",
+         "warning"
+      )
+   }
    // RETURN
    return (
       <div className="navbarTop">
@@ -70,10 +77,10 @@ export default function Navbar(){
             </div>
          </div>
          <div className="hideFirst textSet order-md-3 order-5">
-            <Link className="hoverThis gapBetweenBtn navSet">Cinemas</Link>
+            <Link className="hoverThis gapBetweenBtn navSet" onClick={ () => { comingSoon() } }>Cinemas</Link>
          </div>
          <div className="hideFirst textSet order-md-4 order-6" to="">
-            <Link className="hoverThis gapBetweenBtn navSet">Buy Tickets</Link>
+            <Link className="hoverThis gapBetweenBtn navSet" onClick={ () => { comingSoon() } }>Buy Tickets</Link>
          </div>
          <div className="hideFirst col-12 col-md-1 offset-md-3 dropdown textSet navSet order-md-5 order-3">
             <button className="navBtn dropdown-toggle hoverThis" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,14 +103,14 @@ export default function Navbar(){
                </div>
                {getMovieData.map((item) => {
                   return (
-                     <Link className="movieSearchResultLink" onClick={() => {window.location = "/now-showing/" + item.ticketId}}>
+                     <Link className="movieSearchResultLink" onClick={() => {window.location = "/now-showing/" + item.ticket_id}}>
                         <div className="searchResultBorder">
                            <div>
-                              <img className="searchResultImgSize" src={item.movieImgUrl}/>
+                              <img className="searchResultImgSize" src={item.movie_img}/>
                            </div>
                            <div className="movieSearchResultText">
-                              <p className="searchResultMovieName noMargin">{item.movieName}</p>
-                              <p className="searchResultMovieGenre noMargin">{item.movieGenre}</p>
+                              <p className="searchResultMovieName noMargin">{item.movie_name}</p>
+                              <p className="searchResultMovieGenre noMargin">{item.movie_genre}</p>
                            </div>
                         </div>
                      </Link>
@@ -114,14 +121,14 @@ export default function Navbar(){
          <div className="hideFirst col-12 textSet allRightsReserved order-6">&#169; 2020 Tickitz. All Rights Reserved.</div>
          { localStorage.getItem("isLoggedIn") === "true" ?
          <div className="hideFirst col-md-1 dropdown order-md-7">
-            <img className="dropdown-toggle hoverThis imgNavbar" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src={profileImages}/>
+            <img className="dropdown-toggle hoverThis imgNavbar" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src={profileimages}/>
             <div className="hideFirst dropdown-menu dropdownUser" aria-labelledby="dropdownMenuButton">
                <div className="userDropdownWrapper">
                   <div className="userDropdownArea">
-                     <img className="hoverThis userProfileImage" src={profileImages}/>
+                     <img className="hoverThis userProfileImage" src={profileimages}/>
                      <div className="userProfileNameAndTitle">
-                        <p className="mulishFont userProfileName">{realName}</p>
-                        <p className="mulishFont userProfileTitle">{userJobs}</p>
+                        <p className="mulishFont userProfileName">{realname}</p>
+                        <p className="mulishFont userProfileTitle">{userjobs}</p>
                      </div>
                   </div>
                   { localStorage.getItem("userRole") === "admin" ? 

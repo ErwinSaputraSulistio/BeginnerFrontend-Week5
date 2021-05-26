@@ -22,41 +22,42 @@ export default function UpdateMovies(){
    const updateMovieSubmit = (e) => {
       e.preventDefault()
       const {
-         ticketId, 
-         movieName, 
-         movieGenre, 
-         releaseDate, 
-         directedBy, 
-         movieDuration, 
-         movieCasts,
-         ticketPrice,
-         movieSynopsis
+         ticket_id, 
+         movie_name, 
+         movie_genre, 
+         release_date, 
+         directed_by, 
+         movie_duration, 
+         movie_casts,
+         ticket_price,
+         movie_synopsis
       } = updateData
       // FORM DATA
       const formData = new FormData()
-      formData.append("ticketId", ticketId)
-      formData.append("movieName", movieName)
-      formData.append("movieGenre", movieGenre)
-      formData.append("releaseDate", releaseDate)
-      formData.append("directedBy", directedBy)
-      formData.append("movieDuration", movieDuration)
-      formData.append("movieCasts", movieCasts)
-      formData.append("ticketPrice", ticketPrice)
-      formData.append("movieSynopsis", movieSynopsis)
+      formData.append("ticketId", ticket_id)
+      formData.append("movieName", movie_name)
+      formData.append("movieGenre", movie_genre)
+      formData.append("releaseDate", release_date)
+      formData.append("directedBy", directed_by)
+      formData.append("movieDuration", movie_duration)
+      formData.append("movieCasts", movie_casts)
+      formData.append("ticketPrice", ticket_price)
+      formData.append("movieSynopsis", movie_synopsis)
       formData.append("movieImg", movieImg)
       // PUT DATA TO BACKEND (UPDATE)
-      axios.put(process.env.REACT_APP_NOWSHOWING + ticketId, formData, {
+      axios.put(process.env.REACT_APP_NOWSHOWING + ticket_id, formData, {
          headers: { authorization: 'Bearer ' + localStorage.getItem("jwtToken"), 'Content-Type': 'multipart/form-data' }
       })
       .then(() => {
          Swal.fire(
             "Berhasil!", 
-            "Data film '" + movieName + "' berhasil di ubah, silahkan refresh page untuk melihat perubahan!", 
+            "Data film '" + movie_name + "' berhasil di ubah, silahkan refresh page untuk melihat perubahan!", 
             "success")
          .then(() => {window.location = "/home-page"})
       })
-      .catch((err) => {alert(err.response.data)})
+      .catch((err) => { alert(err.response.data) })
    }
+   const {movie_name, movie_genre, release_date, directed_by, movie_duration, movie_casts, ticket_price, movie_synopsis} = updateData
    return(
       <div className="showInAnimation">
          <Helmet>
@@ -67,14 +68,14 @@ export default function UpdateMovies(){
                <p>Halo, {localStorage.getItem("userRole")} <b>{localStorage.getItem("userName")}</b>,</p>
                <p>ada data film yang ingin di ubah?</p>
             </div>
-            <input className="mulishFont inputAdminMovies" type="text" name="movieName" placeholder="Ubah nama film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.movieName} required/>
-            <input className="mulishFont inputAdminMovies" type="text" name="movieGenre" placeholder="Ubah genre film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.movieGenre} required/>
-            <input className="mulishFont inputAdminMovies" type="text" name="releaseDate" placeholder="Ubah tanggal rilis film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.releaseDate} required/>
-            <input className="mulishFont inputAdminMovies" type="text" name="directedBy" placeholder="Ubah direktor film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.directedBy} required/>
-            <input className="mulishFont inputAdminMovies" type="text" name="movieDuration" placeholder="Ubah durasi film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.movieDuration} required/>
-            <input className="mulishFont inputAdminMovies" type="text" name="movieCasts" placeholder="Ubah pemain / karakter film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.movieCasts} required/>
-            <input className="mulishFont inputAdminMovies" type="number" name="ticketPrice" placeholder="Ubah harga tiket film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.ticketPrice} required/>
-            <textarea className="mulishFont inputAdminMovies inputAdminMoviesSynopsis" type="textarea" name="movieSynopsis" maxLength="1000" placeholder="Ubah sinopsis film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={updateData.movieSynopsis} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="movie_name" placeholder="Ubah nama film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={movie_name} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="movie_genre" placeholder="Ubah genre film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={movie_genre} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="release_date" placeholder="Ubah tanggal rilis film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={release_date} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="directed_by" placeholder="Ubah direktor film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={directed_by} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="movie_duration" placeholder="Ubah durasi film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={movie_duration} required/>
+            <input className="mulishFont inputAdminMovies" type="text" name="movie_casts" placeholder="Ubah pemain / karakter film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={movie_casts} required/>
+            <input className="mulishFont inputAdminMovies" type="number" name="ticket_price" placeholder="Ubah harga tiket film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={ticket_price} required/>
+            <textarea className="mulishFont inputAdminMovies inputAdminMoviesSynopsis" type="textarea" name="movie_synopsis" maxLength="1000" placeholder="Ubah sinopsis film di sini ..." onChange={(e) => {updateMovieHandleInput(e)} } value={movie_synopsis} required/>
             <input className="mulishFont inputAdminMovies" type="file" name="movieImg" placeholder="Ubah gambar poster film di sini ..." onChange={(e) => {updateMovieImg(e)} } required/>
             <input className="mulishFont adminMovieBtn" type="submit" value="Update data film ini !"/>
          </form>

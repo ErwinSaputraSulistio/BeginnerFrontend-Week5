@@ -27,6 +27,7 @@ export default function Login() {
       const userLogin = { loginEmail, loginPassword }
       axios.post(process.env.REACT_APP_USER + "login", userLogin)
       .then((res) => {
+         console.log(res.data)
          if(res.data.statusCode === 404) {
             Swal.fire(
                "Login gagal!", 
@@ -34,17 +35,17 @@ export default function Login() {
                "error")
          }
          else{
-            const {userId, realName, userRole} = res.data.outputData[0]
+            const {userid, realname, userrole} = res.data.outputData[0]
             localStorage.setItem("isLoggedIn", true)
-            localStorage.setItem("userId", userId)
-            localStorage.setItem("userName", realName)
-            localStorage.setItem("userRole", userRole)
+            localStorage.setItem("userId", userid)
+            localStorage.setItem("userName", realname)
+            localStorage.setItem("userRole", userrole)
             localStorage.setItem("jwtToken", res.data.jwtSecretKey)
             Swal.fire(
                "Login berhasil!", 
-               "Selamat datang, " + userRole + " " + realName + "!", 
+               "Selamat datang, " + userrole + " " + realname + "!", 
                "success")
-            .then(() => {window.location = "/home-page"})
+            .then(() => { window.location = "/home-page" })
          }
       })
       .catch((err) => {

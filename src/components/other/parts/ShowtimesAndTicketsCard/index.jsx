@@ -9,7 +9,7 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
    const dispatch = useDispatch()
    const {allCinema} = useSelector(state => state.cinema)
    const getCinema = () => {
-      axios.get("http://localhost:2000/v1/cinemas/all")
+      axios.get("https://ciwin-tickitz.herokuapp.com/v1/cinemas/all")
       .then((res) => { dispatch({type: "CINEMA_ALL", payload: res.data.outputData}) })
       .catch((err) => {alert(err.message)})
    }
@@ -19,7 +19,7 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
       else{
          let currentFilter = []
          for(let i = 0; i <= allCinema.length - 1; i++){
-            if(allCinema[i].cinemaLocation.includes(selectedCity)) {
+            if(allCinema[i].cinema_location.includes(selectedCity)) {
                currentFilter.push(allCinema[i])
             }
          }
@@ -38,17 +38,18 @@ export function ShowtimesAndTicketsCard({ selectedCity }){
       <div className="ticketsCardRow">
          {
          cinemaByLocation.map((item) => {
-            const cinemaName = item.cinemaName
-            const cinemaUrl = item.cinemaLogo
-            const cinemaTimeSplit = item.cinemaTime.split(",")
+            const cinemaName = item.cinema_name
+            const cinemaUrl = item.cinema_logo
+            const cinemaLocation = item.cinema_location
+            const cinemaTimeSplit = item.cinema_time.split(",")
             const firstFourTimeCinema = cinemaTimeSplit.slice(0,4)
             const lastFourTimeCinema = cinemaTimeSplit.slice(4,8)
             return(<div className="showtimesAndTicketsCard">
                <div className="cardFlexRow eightPadding fourPaddingBottom topInfoCardBorder">
-                  <img className="orderHistoryCinemaImg" src={item.cinemaLogo}/>
+                  <img className="orderHistoryCinemaImg" src={cinemaUrl}/>
                   <div className="cinemaInformation">
-                     <p className="cinemaName boldText mulish noMargin">{item.cinemaName}</p>
-                     <p className="cinemaStreet greyText mulish noMargin">{item.cinemaLocation}</p>
+                     <p className="cinemaName boldText mulish noMargin">{cinemaName}</p>
+                     <p className="cinemaStreet greyText mulish noMargin">{cinemaLocation}</p>
                   </div>
                </div>
                <div className="timeFlexRow mulish">

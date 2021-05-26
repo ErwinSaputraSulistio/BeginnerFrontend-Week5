@@ -31,23 +31,16 @@ export default class OrderHistory extends Component {
    }
    // DELETE TRANSACTION
    deleteTransaction = (item) => {
-      const {ticketStatus, transactionId} = item
-      if(ticketStatus == "active"){
+      const {ticket_status, transaction_id} = item
+      if(ticket_status == "active"){
          Swal.fire(
             "Gagal?!",
             "Tiketnya masih aktif lho, silahkan di pakai dulu yah sebelum di hapus ~",
             "error"
             )
       }
-      // else if(ticketStatus == "pending"){
-      //    Swal.fire(
-      //       "Pending!",
-      //       "Gagal menghapus transaksi yang diminta, tiket masih dalam proses transaksi (pending)!",
-      //       "warning"
-      //       )
-      // }
       else{
-         axios.delete(process.env.REACT_APP_TRANSACTION + transactionId, {
+         axios.delete(process.env.REACT_APP_TRANSACTION + transaction_id, {
             headers: { authorization: 'Bearer ' + localStorage.getItem("jwtToken"), 'Content-Type': 'multipart/form-data' }
          })
          .then(() => {
@@ -84,20 +77,20 @@ export default class OrderHistory extends Component {
                   <div className="mulish orderHistoryCard">
                      <div className="orderHistoryTop">
                         <div className="dateAndMovieText">
-                           <p className="orderHistoryShowDate">[{item.showDate}], {item.startTime}</p>
-                           <p className="noMargin orderHistoryMovieName">{item.choosenMovie}</p>
+                           <p className="orderHistoryShowDate">[{item.to_date}], {item.start_time}</p>
+                           <p className="noMargin orderHistoryMovieName">{item.choosen_movie}</p>
                         </div>
-                        <img className="orderHistoryCinemaImg" src={item.cinemaUrl}/>
+                        <img className="orderHistoryCinemaImg" src={item.cinema_url}/>
                      </div>
                      <div className="orderHistoryBottom">
                         {
-                        item.ticketStatus === "pending" ?
+                        item.ticket_status === "pending" ?
                         <p className="noMargin orderHistoryTicketStatus ticketPending">Ticket Pending</p>
                         :
-                        item.ticketStatus === "active" ? 
+                        item.ticket_status === "active" ? 
                         <p className="noMargin orderHistoryTicketStatus ticketActive">Ticket Active</p>
                         :
-                        item.ticketStatus === "used" ?
+                        item.ticket_status === "used" ?
                         <p className="noMargin orderHistoryTicketStatus ticketUsed">Ticket Used</p>
                         :
                         <p className="noMargin orderHistoryTicketStatus ticketExpired">Ticket Expired</p>
@@ -107,9 +100,9 @@ export default class OrderHistory extends Component {
                               Show Details
                            </button>
                            <div className="hideFirst dropdown-menu dropdownMenuCenter" aria-labelledby="dropdownMenuButton">
-                              <Link className="dropdown-item" to={"/now-showing/" + item.ticketId} target="_blank">Movie Details</Link>
-                              {item.ticketStatus === "pending" ? <Link className="dropdown-item" to={"/payment-page/" + item.transactionId}>Fulfill Ticket Payment</Link> : null}
-                              {item.ticketStatus === "active" ? <Link className="dropdown-item" to={"/ticket-result/" + item.transactionId}>Ticket Result</Link> : null}
+                              <Link className="dropdown-item" to={"/now-showing/" + item.ticket_id} target="_blank">Movie Details</Link>
+                              {item.ticket_status === "pending" ? <Link className="dropdown-item" to={"/payment-page/" + item.transaction_id}>Fulfill Ticket Payment</Link> : null}
+                              {item.ticket_status === "active" ? <Link className="dropdown-item" to={"/ticket-result/" + item.transaction_id}>Ticket Result</Link> : null}
                               <Link className="dropdown-item" onClick={() => {this.deleteTransaction(item)}}>Delete Transaction</Link>
                            </div>
                         </div>

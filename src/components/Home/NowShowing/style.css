@@ -25,6 +25,9 @@ a:focus {outline: none;}
 }
 .nowShowingTitle {font-family: 'Mulish'; font-weight: 700;}
 .nowShowingGenre {color: #A0A3BD;}
+.btnDetail {background: transparent;}
+.btnDetail, .btnBookNow {border: none;}
+.btnDetail:hover, .btnBookNow:hover {cursor: pointer;}
 
 /* DESKTOP */
 @media (min-width: 768px){

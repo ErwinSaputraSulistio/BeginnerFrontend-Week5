@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getNowShowing } from '../../../configs/redux/action/cinema'
 import axios from 'axios'
 import './style.css'
 
 export default function NowShowing() {
+   const history = useHistory()
    const dispatch = useDispatch()
    const {nowShowingAll} = useSelector(state => state.cinema)
    useEffect(() => { dispatch(getNowShowing()) }, [])
@@ -17,14 +19,14 @@ export default function NowShowing() {
          <div className="nowShowingList">
             {nowShowingAll.map((item) =>
                <div className="nowShowingMovie">
-                  <img class="nowShowingMovieImg" src = {item.movieImgUrl}/>
+                  <img class="nowShowingMovieImg" src = {item.movie_img}/>
                   <div className="showWhenHover titleBorder">
-                     <div className="textSet nowShowingTitle">{item.movieName}</div>
-                     <div className="textSet nowShowingGenre">{item.movieGenre}</div>
+                     <div className="textSet nowShowingTitle">{item.movie_name}</div>
+                     <div className="textSet nowShowingGenre">{item.movie_genre}</div>
                   </div>
                   <div className="showWhenHover btnBorder">
-                     <a className="textSet btnDetail" href={"localhost:3000/now-showing/" + item.ticketId} target="_blank">Details</a>
-                     <a className="textSet btnBookNow" href={"localhost:3000/now-showing/" + item.ticketId} target="_blank">Book Now</a>
+                     <button className="textSet btnDetail" onClick={ () => { history.push("/now-showing/" + item.ticket_id) }} target="_blank">Details</button>
+                     <button className="textSet btnBookNow" onClick={ () => { history.push("/now-showing/" + item.ticket_id) }} target="_blank">Book Now</button>
                   </div>
                </div>
             )}

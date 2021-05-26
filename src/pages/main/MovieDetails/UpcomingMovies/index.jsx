@@ -33,7 +33,7 @@ export default class UpcomingMovies extends Component {
          //    ).then(() => window.location = "/login")
          // }
          // else{
-         const setUpResData = res.data.outputData[0].upcomingId
+         const setUpResData = res.data.outputData[0].upcoming_id
          setUpResData === undefined ? alert(res.data.outputData) :
          this.setState({
             upcomingMovies: res.data.outputData,
@@ -61,20 +61,20 @@ export default class UpcomingMovies extends Component {
 
    // ADMIN - CHANGE DATA
    updateThisUpcomingMovie(updateThisMovieBy){
-      localStorage.setItem("updateMovieId", updateThisMovieBy.upcomingId)
+      localStorage.setItem("updateMovieId", updateThisMovieBy.upcoming_id)
       localStorage.setItem("adminMoviesAction", "updateMovies")
       window.location = "/admin/add-or-update-movies"
    }
 
    // ADMIN - ERASE MOVIE
    deleteThisUpcomingMovie(deleteThisMovieBy){
-      axios.delete(process.env.REACT_APP_UPCOMING + deleteThisMovieBy.upcomingId, {
+      axios.delete(process.env.REACT_APP_UPCOMING + deleteThisMovieBy.upcoming_id, {
          headers: {authorization: 'Bearer ' + localStorage.getItem("jwtToken")}
       })
       .then(() => {
          Swal.fire(
             "Berhasil!", 
-            "Berhasil menghapus film '" + deleteThisMovieBy.movieName + "', silahkan refresh page untuk melihat perubahan!", 
+            "Berhasil menghapus film '" + deleteThisMovieBy.upcoming_name + "', silahkan refresh page untuk melihat perubahan!", 
             "success")
          .then(() => {window.location = "/upcoming-movies/all"})
       })
@@ -121,48 +121,48 @@ export default class UpcomingMovies extends Component {
             {this.state.upcomingMovies.map((item) =>
             <div className="nowShowingMovieDetails">
                <div className="movieDetailsImgBorder">
-                  <img className="movieDetailsImg" src={item.upcomingImgUrl}/>
+                  <img className="movieDetailsImg" src={item.upcoming_img}/>
                </div>
                <div className="movieDetailsInfo">
                   <div className="movieDetailsTitleAndGenre">
-                     <p className="movieDetailsTitle">{item.upcomingName}</p>
-                     <p className="movieDetailsGenre">{item.upcomingGenre}</p>
+                     <p className="movieDetailsTitle">{item.upcoming_name}</p>
+                     <p className="movieDetailsGenre">{item.upcoming_genre}</p>
                   </div>
                   <div className="movieDetailsMoreInfo">
                      <div className="movieDetailsRowOne">
                         <div className="insideMovieDetailsRowOne">
                            <div className="insideMovieDetailsRowAgain">
                               <p className="topTextMovieDetails">Release date</p>
-                              <p className="bottomTextMovieDetails">{item.releaseDate}</p>
+                              <p className="bottomTextMovieDetails">{item.release_date}</p>
                            </div>
                            <div className="insideMovieDetailsRowAgain">
                               <p className="topTextMovieDetails">Duration</p>
-                              <p className="bottomTextMovieDetails">{item.movieDuration}</p>
+                              <p className="bottomTextMovieDetails">{item.movie_duration}</p>
                            </div>
                         </div>
                      </div>
                      <div className="movieDetailsRowTwo">
                         <div className="insideMovieDetailsRowAgain">
                            <p className="topTextMovieDetails">Directed by</p>
-                           <p className="bottomTextMovieDetails">{item.directedBy}</p>
+                           <p className="bottomTextMovieDetails">{item.directed_by}</p>
                         </div>
                         <div className="insideMovieDetailsRowAgain">
                            <p className="topTextMovieDetails">Casts</p>
-                           <p className="bottomTextMovieDetails">{item.movieCasts}</p>
+                           <p className="bottomTextMovieDetails">{item.movie_casts}</p>
                         </div>
                      </div>
                   </div>
                   <div className="thisIsLineBreaksMovieDetails"/>
                   <div className="movieDetailsSynopsis">
                      <p className="synopsisText">Synopsis</p>
-                     <p className="afterSynopsisText">{item.upcomingSynopsis}</p>
+                     <p className="afterSynopsisText">{item.upcoming_synopsis}</p>
                   </div>
-                  {localStorage.getItem("userRole") === "admin" ?
+                  {/* {localStorage.getItem("userRole") === "admin" ?
                      <div className="adminMovieBtnArea">
                         <button className="hoverThis adminNowShowingBtn adminUpdateFilmBtn" onClick={this.updateThisUpcomingMovie.bind(this, item)}>Update Newest Data</button>
                         <button className="hoverThis adminNowShowingBtn adminRemoveFilmBtn" onClick={this.deleteThisUpcomingMovie.bind(this, item)}>Remove This Film</button>
                      </div>
-                  : null}
+                  : null} */}
                </div>
                <div className="borderLinesBetween"/>
             </div>

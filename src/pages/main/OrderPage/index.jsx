@@ -24,7 +24,7 @@ export default class OrderPage extends Component{
       })
       .then((res) => {
          this.setState({orderedMovie: res.data.outputData[0]})
-         if(this.state.orderedMovie.movieName === undefined){
+         if(this.state.orderedMovie.movie_name === undefined){
          Swal.fire("Oops!", "Tiket film yang ingin dibeli tidak ditemukan, proses pembelian tiket gagal!", "error") 
          .then(() => {window.location = "/home-page"})
          }
@@ -62,7 +62,7 @@ export default class OrderPage extends Component{
       }
       else {
          const allSeatPosition = this.state.orderedSeat.sort((a,b) => a.localeCompare(b, 'en', { numeric: true })).join(", ")
-         const totalTicketPrice = this.state.orderedMovie.ticketPrice * this.state.orderedSeat.length
+         const totalTicketPrice = this.state.orderedMovie.ticket_price * this.state.orderedSeat.length
          const newTransaction = {
             userId: localStorage.getItem("userId"),
             ticketId: localStorage.getItem("nowShowingId"),
@@ -86,7 +86,7 @@ export default class OrderPage extends Component{
             else{
                Swal.fire(
                   "Berhasil!",
-                  "Pemesanan tiket film '" + this.state.orderedMovie.movieName + "' sudah selesai, silahkan cek Order History untuk keterangan lebih lanjut ~",
+                  "Pemesanan tiket film '" + this.state.orderedMovie.movie_name + "' sudah selesai, silahkan cek Order History untuk keterangan lebih lanjut ~",
                   "success"
                ).then(() => {
                   window.location = "/profile-page/" + localStorage.getItem("userId")
@@ -114,11 +114,11 @@ export default class OrderPage extends Component{
       return(
          <div className="orderPage showInAnimation">
             <Helmet>
-               <title>{this.state.orderedMovie.movieName}</title>
+               <title>{this.state.orderedMovie.movie_name}</title>
             </Helmet>
             <Navbar/>
             <div className="titleAndChangeMovie">
-               <p className="mulish noMargin orderMovieTitle">{this.state.orderedMovie.movieName}</p>
+               <p className="mulish noMargin orderMovieTitle">{this.state.orderedMovie.movie_name}</p>
                <Link className="mulish changeOrderedMovie" onClick={() => {window.location = "/home-page"}}>Change Movie</Link>
             </div>
             <div className="orderPageRow">
@@ -186,7 +186,7 @@ export default class OrderPage extends Component{
                         <p className="insideOrderInfoCinemaName">{localStorage.getItem("cinemaName")}</p>
                         <div className="insideOrderInfoText">
                            <p className="noMargin sixBcolor">Movie selected</p>
-                           <p className="noMargin">{this.state.orderedMovie.movieName}</p>
+                           <p className="noMargin">{this.state.orderedMovie.movie_name}</p>
                         </div>
                         <div className="insideOrderInfoText">
                            <p className="noMargin sixBcolor">{localStorage.getItem("showDate")}</p>
@@ -194,7 +194,7 @@ export default class OrderPage extends Component{
                         </div>
                         <div className="insideOrderInfoText">
                            <p className="noMargin sixBcolor">One ticket price</p>
-                           <p className="noMargin">IDR {this.state.orderedMovie.ticketPrice}</p>
+                           <p className="noMargin">IDR {this.state.orderedMovie.ticket_price}</p>
                         </div>
                         <div className="insideOrderInfoText">
                            <p className="noMargin sixBcolor">Seat choosed</p>
@@ -206,7 +206,7 @@ export default class OrderPage extends Component{
                      <div className="insideOrderInfoBottom">
                         <div className="insideOrderInfoText">
                            <p className="noMargin">Total Payment</p>
-                           <p className="noMargin">IDR {this.state.orderedMovie.ticketPrice * this.state.orderedSeat.length}</p>
+                           <p className="noMargin">IDR {this.state.orderedMovie.ticket_price * this.state.orderedSeat.length}</p>
                         </div>
                      </div>
                   </div>

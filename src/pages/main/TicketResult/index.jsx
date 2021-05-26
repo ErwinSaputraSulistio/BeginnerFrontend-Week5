@@ -11,15 +11,23 @@ import Swal from 'sweetalert2'
 export default function TicketResult(){
    const paramsId = useParams().id
    const [transactionData, setTransaction] = useState({})
+   // DATE-REVERSER
+   const dateReverser = (dt) => {
+      const rvDt = dt.slice(0,10).split("-")
+      const joinDate = rvDt[2] + "/" + rvDt[1] + "/" +rvDt[0]
+      return joinDate;
+   }
    useEffect(() => {
       axios.get(process.env.REACT_APP_TRANSACTION + "number/" + paramsId)
-      .then((res) => {
-         setTransaction(res.data.outputData[0])
-         console.log(res.data.outputData[0])
+      .then((res) => { 
+         const transactionOutputData = res.data.outputData[0]
+         const reverseDate = dateReverser(res.data.outputData[0].to_date)
+         setTransaction({...transactionOutputData, to_date: reverseDate})
       })
       .catch(() => {})
    }, [])
-   const { choosenMovie, showDate, startTime, howManyTickets, seatPosition, totalPayment } = transactionData
+   const { choosen_movie, to_date, start_time, how_many_tickets, seat_position, total_payment } = transactionData
+   console.log(transactionData)
    return(
       <div className="showInAnimation">
          <Helmet>
@@ -39,17 +47,17 @@ export default function TicketResult(){
                         <div className="bottomLeftTicketRow">
                            <div className="bottomLeftTicketColumn">
                               <p className="noMargin ticketLittleTitle">Movie</p>
-                              <p className="ticketTitleContent">{choosenMovie}</p>
+                              <p className="ticketTitleContent">{choosen_movie}</p>
                            </div>
                         </div>
                         <div className="bottomLeftTicketRow">
                            <div className="bottomLeftTicketColumn widthFourty">
                               <p className="noMargin ticketLittleTitle">Date</p>
-                              <p className="ticketTitleContent">{showDate}</p>
+                              <p className="ticketTitleContent">{to_date}</p>
                            </div>
                            <div className="bottomLeftTicketColumn widthThirty">
                               <p className="noMargin ticketLittleTitle">Time</p>
-                              <p className="ticketTitleContent">{startTime}</p>
+                              <p className="ticketTitleContent">{start_time}</p>
                            </div>
                            <div className="bottomLeftTicketColumn widthThirty">
                               <p className="noMargin ticketLittleTitle">Category</p>
@@ -59,15 +67,15 @@ export default function TicketResult(){
                         <div className="bottomLeftTicketRow">
                            <div className="bottomLeftTicketColumn widthFourty">
                               <p className="noMargin ticketLittleTitle">Count</p>
-                              <p className="ticketTitleContent">{howManyTickets} pieces</p>
+                              <p className="ticketTitleContent">{how_many_tickets} pieces</p>
                            </div>
                            <div className="bottomLeftTicketColumn widthThirty">
                               <p className="noMargin ticketLittleTitle">Seats</p>
-                              <p className="ticketTitleContent">{seatPosition}</p>
+                              <p className="ticketTitleContent">{seat_position}</p>
                            </div>
                            <div className="bottomLeftTicketColumn widthThirty">
                               <p className="noMargin ticketLittleTitle">Price</p>
-                              <p className="ticketTitleContent">IDR {totalPayment}</p>
+                              <p className="ticketTitleContent">IDR {total_payment}</p>
                            </div>
                         </div>
                      </div>
@@ -80,26 +88,26 @@ export default function TicketResult(){
                         <div className="insideBottomRightTicket">
                            <div>
                               <p className="noMargin ticketLittleTitle">Movie</p>
-                              <p className="ticketTitleContent">{choosenMovie}</p>
+                              <p className="ticketTitleContent">{choosen_movie}</p>
                            </div>
                            <div className="bottomRightTicketRow">
                               <div className="widthFifty">
                                  <p className="noMargin ticketLittleTitle">Date</p>
-                                 <p className="ticketTitleContent">{showDate}</p>
+                                 <p className="ticketTitleContent">{to_date}</p>
                               </div>
                               <div className="widthFifty">
                                  <p className="noMargin ticketLittleTitle">Time</p>
-                                 <p className="ticketTitleContent">{startTime}</p>
+                                 <p className="ticketTitleContent">{start_time}</p>
                               </div>
                            </div>
                            <div className="bottomRightTicketRow">
                               <div className="widthFifty">
                                  <p className="noMargin ticketLittleTitle">Count</p>
-                                 <p className="ticketTitleContent">{howManyTickets} pieces</p>
+                                 <p className="ticketTitleContent">{how_many_tickets} pieces</p>
                               </div>
                               <div className="widthFifty">
                                  <p className="noMargin ticketLittleTitle">Seats</p>
-                                 <p className="ticketTitleContent">{seatPosition}</p>
+                                 <p className="ticketTitleContent">{seat_position}</p>
                               </div>
                            </div>
                            <div className="bottomRightTicketRow">

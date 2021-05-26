@@ -23,7 +23,7 @@ export default function PaymentPage(){
       axios.get(process.env.REACT_APP_TRANSACTION + "number/" + paramsId)
       .then((res) => {
          dispatch({type: "TRANSACTION_ID", payload: res.data.outputData[0]})
-         setBuyerData({buyerName: res.data.outputData[0].ticketBuyer, buyerEmail: res.data.outputData[0].buyerEmail, buyerPhoneNumber: res.data.outputData[0].phoneNumber})
+         setBuyerData({buyerName: res.data.outputData[0].ticket_buyer, buyerEmail: res.data.outputData[0].buyer_email, buyerPhoneNumber: res.data.outputData[0].phone_number})
       })
       .catch((err) => {
          // window.location = "/profile-page/" + localStorage.getItem("userId")
@@ -40,13 +40,18 @@ export default function PaymentPage(){
             headers: { authorization: 'Bearer ' + localStorage.getItem("jwtToken") }
          })
          .then(() => { Swal.fire("Berhasil!", "Pembayaran kamu sudah kami terima, tiket berhasil di verifikasi!", "success").then(() => {window.location = "/home-page"}) })
-         .catch((err) => { Swal.fire("Login ulang, yuk?!", err.response.data.jwtError, "warning").then(() => {window.location = "/login"}) })
+         .catch((err) => { 
+            Swal.fire("Login ulang, yuk?!", err.response.data.jwtError, "warning")
+            .then(() => {
+               localStorage.clear()
+               window.location = "/login"
+            }) 
+         })
       }
    }
+   const trxDate = transactionData.to_date
    useEffect(() => { getTransactionById() }, [])
-   useEffect(() => {
-      setTransactionData(transactionId)
-   }, [transactionId])
+   useEffect(() => { setTransactionData(transactionId) }, [transactionId])
    return(
       <div className="showInAnimation">
          <Helmet>
@@ -59,23 +64,23 @@ export default function PaymentPage(){
                <div className="insidePaymentPageWhite" style={{padding: "1vw 2vw"}}>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Date &amp; time</p>
-                     <p className="noMargin">{transactionData.showDate + " at " + transactionData.startTime}</p>
+                     <p className="noMargin">{trxDate === undefined ? transactionData.to_date : trxDate.slice(0,10) + " at " + transactionData.start_time}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Movie title</p>
-                     <p className="noMargin">{transactionData.choosenMovie}</p>
+                     <p className="noMargin">{transactionData.choosen_movie}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Cinema name</p>
-                     <p className="noMargin">{transactionData.cinemaName}</p>
+                     <p className="noMargin">{transactionData.cinema_name}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain">
                      <p className="color6B6B6B noMargin">Number of tickets</p>
-                     <p className="noMargin">{transactionData.howManyTickets + " pieces"}</p>
+                     <p className="noMargin">{transactionData.how_many_tickets + " pieces"}</p>
                   </div>
                   <div className="insidePaymentPageWhiteAgain" style={{border: "none"}}>
                      <p className="color6B6B6B noMargin">Total payment</p>
-                     <p className="noMargin">{"IDR " + transactionData.totalPayment}</p>
+                     <p className="noMargin">{"IDR " + transactionData.total_payment}</p>
                   </div>
                </div>
                <p className="noMargin paymentPageTitle">Choose a payment method</p>
