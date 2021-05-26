@@ -35,6 +35,7 @@ export default function Login() {
                "error")
          }
          else{
+            console.log(res.data.jwtSecretKey)
             const {userid, realname, userrole} = res.data.outputData[0]
             localStorage.setItem("isLoggedIn", true)
             localStorage.setItem("userId", userid)
