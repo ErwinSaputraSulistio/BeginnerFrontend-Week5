@@ -113,21 +113,20 @@ export default class OrderPage extends Component{
       }
    }
    render(){
-      console.log(this.state.orderedSeat)
       // CHECK IF SEAT ALREADY BOOKED
       axios.get(process.env.REACT_APP_TRANSACTION_NOSLASH + "?page=1&limit=999")
       .then((res) => { 
          const data = res.data.outputData
          for(let i = 0; i < data.length; i++) {
-            if(this.state.alreadyBooked === true) { break; }
-            else{
-               if(
-                  data[i].cinema_name === localStorage.getItem("cinemaName") &&
-                  data[i].ticket_id === this.state.orderedMovie.ticket_id && 
-                  data[i].choosen_movie === this.state.orderedMovie.movie_name && 
-                  data[i].start_time === (localStorage.getItem("startTime") + ":00") 
-               ) { this.setState({alreadyBooked: true, existSeat: data[i].seat_position.split(", ")}) }
-            }     
+            if(
+               data[i].cinema_name === localStorage.getItem("cinemaName") &&
+               data[i].ticket_id === this.state.orderedMovie.ticket_id && 
+               data[i].choosen_movie === this.state.orderedMovie.movie_name && 
+               data[i].start_time === (localStorage.getItem("startTime") + ":00") 
+            ) { 
+               this.setState({ alreadyBooked: true }) 
+               this.setState({ existSeat: [...this.state.existSeat, data[i].seat_position.split(", ")] }) 
+            }
          }
       })
       .catch((err) => { console.log(err.response) })
@@ -156,10 +155,10 @@ export default class OrderPage extends Component{
                                        if(item !== 14) {
                                           if(item === 10) {
                                              if(this.state.existSeat.includes(alphabet + item) === true) {
-                                                return <Link class="loveNest noLineHeight chooseSeatBtn bookedSeatBtn"/> 
+                                                return <Link class="bookedSeatBtn loveNest noLineHeight chooseSeatBtn" style={{background: "grey"}}/> 
                                              }
                                              else {
-                                                return <Link class="loveNest noLineHeight chooseSeatBtn activeSeatBtn" onClick={(e) => {this.checkSeat(e, "Love Nest")}}/> 
+                                                return <Link class="activeSeatBtn loveNest noLineHeight chooseSeatBtn" onClick={(e) => {this.checkSeat(e, "Love Nest")}}/> 
                                              }
                                           }
                                           else {
