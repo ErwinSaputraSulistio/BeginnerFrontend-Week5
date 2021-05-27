@@ -2,6 +2,17 @@
     <img src="https://user-images.githubusercontent.com/77045083/119020412-65f3b400-b9c8-11eb-8aa8-c30a7cc30cae.png" width="300"/>
 </p>
 
+## :mag_right: About Tickitz
+    Tickitz is a web application for those who want to book tickets online, or to see the list of current showing and 
+    upcoming movies. We assure you that our services will satisfy every customers of ours, and saving their time in 
+    ordering movie tickets. If you got a more better and simple solution ahead of you, why still choose the exhausting one?
+
+## :page_with_curl: How to install & start?  
+    git clone https://github.com/ErwinSaputraSulistio/Tickitz-FE
+    cd Tickitz-FE
+    npm start
+Backend (GitHub Repository) : https://github.com/ErwinSaputraSulistio/Tickitz-BE  
+
 ## :computer: User Interface (UI) - Preview :
 <p align="center">
   <img height="215" src="https://user-images.githubusercontent.com/77045083/117106829-bead3500-adaa-11eb-87dd-5c5d0d248e92.png" width="415">
@@ -10,12 +21,6 @@
   <img height="215" src="https://user-images.githubusercontent.com/77045083/116245297-07556480-a793-11eb-9045-2b3becfa3e2a.png" width="415">
   <img height="215" src="https://user-images.githubusercontent.com/77045083/116245316-0cb2af00-a793-11eb-8666-f6a8cf532a53.png" width="415">
 </p>
-
-## :page_with_curl: How to install & start?  
-    git clone https://github.com/ErwinSaputraSulistio/Tickitz-FE
-    cd Tickitz-FE
-    npm start
-Backend (GitHub Repository) : https://github.com/ErwinSaputraSulistio/Tickitz-BE  
 
 ## :pushpin: Deploy - Netlify :
 
