@@ -29,7 +29,7 @@ Backend (GitHub Repository) : https://github.com/ErwinSaputraSulistio/Tickitz-BE
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3e5e5f0e-297c-4bbe-85d7-12793c76f338/deploy-status)](https://app.netlify.com/sites/ciwin-react-tickitz-arkademy/deploys)   
 1.) Register : https://ciwin-react-tickitz-arkademy.netlify.app/register  
 2.) Login : https://ciwin-react-tickitz-arkademy.netlify.app/login  
-3.) Reset Password : https://ciwin-react-tickitz-arkademy.netlify.app/reset-password  
+3.) Reset Password : https://ciwin-react-tickitz-arkademy.netlify.app/reset-password/send-mail  
 4.) Home : https://ciwin-react-tickitz-arkademy.netlify.app/home-page  
 5.) Now Showing : https://ciwin-react-tickitz-arkademy.netlify.app/now-showing/all  
 6.) Profile Page (must login first) : https://ciwin-react-tickitz-arkademy.netlify.app/profile-page  
