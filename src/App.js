@@ -22,7 +22,7 @@ function App() {
         <Switch>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route path="/reset-password" component={ResetPassword}/>
+          <Route path="/reset-password/:id" component={ResetPassword}/>
           <Route path="/verification/:id" component={Verification}/>
           <Route path="/profile-page" component={ProfilePage}/>
           <Route path="/home-page" component={HomePage}/>

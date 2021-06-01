@@ -99,7 +99,7 @@ export default function Login() {
                   </form>
                   <div className="optionLoginButton">
                   <Link className="hoverEffect mulishFont resetNowText" to="/register"><u>Create new account</u></Link>
-                  <Link className="hoverEffect mulishFont resetPasswordNow resetNowText" to="/reset-password"><u>Reset password</u></Link>
+                  <Link className="hoverEffect mulishFont resetPasswordNow resetNowText" to="/reset-password/send-mail"><u>Reset password</u></Link>
                   </div>
                </div>
                <p className="lineBreaks"><span>Or</span></p>
